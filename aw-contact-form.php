@@ -38,6 +38,99 @@ function aw_contact_form_sc( $atts ) {
     // and the success message when the e-mail is sent:
     "success" => "Thanks for your e-mail! We'll get back to you as soon as we can."
 ), $atts ) );
+
+// if the <form> element is POSTed, run the following code
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+    $error = false;
+    // set the "required fields" to check
+    $required_fields = array( "your_name", "email", "message", "subject" );
+ 
+    // this part fetches everything that has been POSTed, sanitizes them and lets us use them as $form_data['subject']
+    foreach ( $_POST as $field => $value ) {
+        if ( get_magic_quotes_gpc() ) {
+            $value = stripslashes( $value );
+        }
+        $form_data[$field] = strip_tags( $value );
+    }
+ 
+    // if the required fields are empty, switch $error to TRUE and set the result text to the shortcode attribute named 'error_empty'
+    foreach ( $required_fields as $required_field ) {
+        $value = trim( $form_data[$required_field] );
+        if ( empty( $value ) ) {
+            $error = true;
+            $result = $error_empty;
+        }
+    }
+ 
+    // and if the e-mail is not valid, switch $error to TRUE and set the result text to the shortcode attribute named 'error_noemail'
+    if ( ! is_email( $form_data['email'] ) ) {
+        $error = true;
+        $result = $error_noemail;
+    }
+ 
+    if ( $error == false ) {
+        $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
+        $email_message = $form_data['message'] . "\n\nIP: " . aw_get_the_ip();
+        $headers  = "From: " . $form_data['name'] . " <" . $form_data['email'] . ">\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\n";
+        $headers .= "Content-Transfer-Encoding: 8bit\n";
+        wp_mail( $email, $email_subject, $email_message, $headers );
+        $result = $success;
+        $sent = true;
+    }
+    // but if $error is still FALSE, put together the POSTed variables and send the e-mail!
+    if ( $error == false ) {
+        // get the website's name and puts it in front of the subject
+        $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
+        // get the message from the form and add the IP address of the user below it
+        $email_message = $form_data['message'] . "\n\nIP: " . aw_get_the_ip();
+        // set the e-mail headers with the user's name, e-mail address and character encoding
+        $headers  = "From: " . $form_data['your_name'] . " <" . $form_data['email'] . ">\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\n";
+        $headers .= "Content-Transfer-Encoding: 8bit\n";
+        // send the e-mail with the shortcode attribute named 'email' and the POSTed data
+        wp_mail( $email, $email_subject, $email_message, $headers );
+        // and set the result text to the shortcode attribute named 'success'
+        $result = $success;
+        // ...and switch the $sent variable to TRUE
+        $sent = true;
+    }
+}
+
+// if there's no $result text (meaning there's no error or success, meaning the user just opened the page and did nothing) there's no need to show the $info variable
+if ( $result != "" ) {
+    $info = '<div class="info">' . $result . '</div>';
+}
+// anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
+$email_form = '<form class="aw-contact-form" method="post" action="' . get_permalink() . '">
+    <div>
+        <label for="cf_name">' . $label_name . ':</label>
+        <input type="text" name="your_name" id="cf_name" size="50" maxlength="50" value="' . $form_data['your_name'] . '" />
+    </div>
+    <div>
+        <label for="cf_email">' . $label_email . ':</label>
+        <input type="text" name="email" id="cf_email" size="50" maxlength="50" value="' . $form_data['email'] . '" />
+    </div>
+    <div>
+        <label for="cf_subject">' . $label_subject . ':</label>
+        <input type="text" name="subject" id="cf_subject" size="50" maxlength="50" value="' . $subject . $form_data['subject'] . '" />
+    </div>
+    <div>
+        <label for="cf_message">' . $label_message . ':</label>
+        <textarea name="message" id="cf_message" cols="50" rows="15">' . $form_data['message'] . '</textarea>
+    </div>
+    <div>
+        <input type="submit" value="' . $label_submit . '" name="send" id="cf_send" />
+    </div>
+</form>';
+
+if ( $sent == true ) {
+    return $info;
+} else {
+    return $info . $email_form;
+}
+
+return $info . $email_form;
  
 }
 add_shortcode( 'aw_contact', 'aw_contact_form_sc' );
