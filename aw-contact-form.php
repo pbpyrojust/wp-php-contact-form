@@ -26,7 +26,9 @@ function aw_contact_form_sc( $atts ) {
     // if you don't provide an e-mail address, the shortcode will pick the e-mail address of the admin:
     "email" => get_bloginfo( 'admin_email' ),
     "subject" => "",
-    "label_first_name" => "Your Name",
+    "label_first_name" => "First Name",
+    "label_middle_name" => "Middle Name",
+    "label_last_name" => "Last Name",
     "label_email" => "Your E-mail Address",
     "label_subject" => "Subject",
     "label_message" => "Your Message",
