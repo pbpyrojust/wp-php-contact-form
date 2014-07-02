@@ -70,7 +70,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
  
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        $email_message = $form_data['message'] . "\n\nIP: " . aw_get_the_ip();
+        $email_message = $form_data['message'] . "\n\nIP: " . aw_contact_get_the_ip();
         $headers  = "From: " . $form_data['name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
