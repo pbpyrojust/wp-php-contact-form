@@ -2,7 +2,7 @@
 /*
 Plugin Name: AW Contact Form
 Plugin URI: http://anthroware.com
-Description: A simple contact form for simple needs. Usage: <code>[contact email="your@email.address"]</code>
+Description: A simple contact form for simple needs. Usage: <code>[aw_contact email="your@email.address"]</code>
 Version: 1.0
 Author: Justin Adams
 Author URI: http://justwhat.net
