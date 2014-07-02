@@ -26,7 +26,7 @@ function aw_contact_form_sc( $atts ) {
     // if you don't provide an e-mail address, the shortcode will pick the e-mail address of the admin:
     "email" => get_bloginfo( 'admin_email' ),
     "subject" => "",
-    "label_name" => "Your Name",
+    "label_first_name" => "Your Name",
     "label_email" => "Your E-mail Address",
     "label_subject" => "Subject",
     "label_message" => "Your Message",
@@ -43,7 +43,7 @@ function aw_contact_form_sc( $atts ) {
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $error = false;
     // set the "required fields" to check
-    $required_fields = array( "your_name", "email", "message", "subject" );
+    $required_fields = array( "first_name", "email", "message", "subject" );
  
     // this part fetches everything that has been POSTed, sanitizes them and lets us use them as $form_data['subject']
     foreach ( $_POST as $field => $value ) {
@@ -85,7 +85,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the message from the form and add the IP address of the user below it
         $email_message = $form_data['message'] . "\n\nIP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
-        $headers  = "From: " . $form_data['your_name'] . " <" . $form_data['email'] . ">\n";
+        $headers  = "From: " . $form_data['first_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         // send the e-mail with the shortcode attribute named 'email' and the POSTed data
@@ -101,19 +101,58 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 if ( $result != "" ) {
     $info = '<div class="info">' . $result . '</div>';
 }
+// states array for dropdown
+    $states_arr = array('AL'=>"Alabama",'AK'=>"Alaska",'AZ'=>"Arizona",'AR'=>"Arkansas",'CA'=>"California",'CO'=>"Colorado",'CT'=>"Connecticut",'DE'=>"Delaware",'DC'=>"District Of Columbia",'FL'=>"Florida",'GA'=>"Georgia",'HI'=>"Hawaii",'ID'=>"Idaho",'IL'=>"Illinois", 'IN'=>"Indiana", 'IA'=>"Iowa",  'KS'=>"Kansas",'KY'=>"Kentucky",'LA'=>"Louisiana",'ME'=>"Maine",'MD'=>"Maryland", 'MA'=>"Massachusetts",'MI'=>"Michigan",'MN'=>"Minnesota",'MS'=>"Mississippi",'MO'=>"Missouri",'MT'=>"Montana",'NE'=>"Nebraska",'NV'=>"Nevada",'NH'=>"New Hampshire",'NJ'=>"New Jersey",'NM'=>"New Mexico",'NY'=>"New York",'NC'=>"North Carolina",'ND'=>"North Dakota",'OH'=>"Ohio",'OK'=>"Oklahoma", 'OR'=>"Oregon",'PA'=>"Pennsylvania",'RI'=>"Rhode Island",'SC'=>"South Carolina",'SD'=>"South Dakota",'TN'=>"Tennessee",'TX'=>"Texas",'UT'=>"Utah",'VT'=>"Vermont",'VA'=>"Virginia",'WA'=>"Washington",'WV'=>"West Virginia",'WI'=>"Wisconsin",'WY'=>"Wyoming");
+
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
 $email_form = '<form class="aw-contact-form" method="post" action="' . get_permalink() . '">
+
     <div>
-        <label for="cf_name">' . $label_name . ':</label>
-        <input type="text" name="your_name" id="cf_name" size="50" maxlength="50" value="' . $form_data['your_name'] . '" />
+        <label for="cf__first_name">' . $label_first_name . ':</label>
+        <input type="text" name="first_name" id="cf_name" size="50" maxlength="50" value="' . $form_data['first_name'] . '" />
     </div>
+    <div>
+        <label for="cf_middle_name">' . $label_middle_name . ':</label>
+        <input type="text" name="middle_name" id="cf_middle_name" size="50" maxlength="50" value="' . $form_data['first_middle_name'] . '" />
+    </div>
+    <div>
+        <label for="cf_last_name">' . $label_last_name . ':</label>
+        <input type="text" name="last_name" id="cf_last_name" size="50" maxlength="50" value="' . $form_data['first_last_name'] . '" />
+    </div>
+    
+    <div>
+        <label for="cf_gender">' . $label_gender . ':</label>
+        <select name="gender" size="50">
+			<option value="male" value="' . $form_data['male'] . '">Male</option>
+			<option value="female" value="' . $form_data['female'] . '">Female</option>
+		</select>
+    </div>
+    <div>
+        <label for="cf_state">' . $label_state . ':</label>
+        <select name="gender" size="50">
+			<option value="male" value="' . $form_data['male'] . '">Male</option>
+			<option value="female" value="' . $form_data['female'] . '">Female</option>
+		</select>
+    </div>
+    <div>
+        <label for="cf_name">' . $label_birth_month . ':</label>
+        <input type="text" name="your_name" id="cf_name" size="2" maxlength="2" value="MM' . $form_data['first_birth_month'] . '" />
+    </div>
+    <div>
+        <label for="cf_name">' . $label_birth_day . ':</label>
+        <input type="text" name="your_name" id="cf_name" size="2" maxlength="2" value="DD' . $form_data['first_birth_day'] . '" />
+    </div>
+    <div>
+        <label for="cf_name">' . $label_birth_year . ':</label>
+        <input type="text" name="your_name" id="cf_name" size="4" maxlength="4" value="YYYY' . $form_data['first_birth_year'] . '" />
+    </div>
+    
+    
+    
+    
     <div>
         <label for="cf_email">' . $label_email . ':</label>
         <input type="text" name="email" id="cf_email" size="50" maxlength="50" value="' . $form_data['email'] . '" />
-    </div>
-    <div>
-        <label for="cf_subject">' . $label_subject . ':</label>
-        <input type="text" name="subject" id="cf_subject" size="50" maxlength="50" value="' . $subject . $form_data['subject'] . '" />
     </div>
     <div>
         <label for="cf_message">' . $label_message . ':</label>
