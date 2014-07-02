@@ -1,0 +1,6 @@
+/* AW Contact Form Custom Styles */
+.aw-contact-form label, .aw-contact-form input, .aw-contact-form textarea { display: block; margin: 10px 0; }
+.aw-contact-form label { font-size: larger; }
+.aw-contact-form input { padding: 5px; }
+#cf_message { width: 90%; padding: 10px; }
+#cf_send { padding: 5px 10px; }

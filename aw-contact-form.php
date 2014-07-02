@@ -83,7 +83,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the website's name and puts it in front of the subject
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
         // get the message from the form and add the IP address of the user below it
-        $email_message = $form_data['message'] . "\n\nIP: " . aw_get_the_ip();
+        $email_message = $form_data['message'] . "\n\nIP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
         $headers  = "From: " . $form_data['your_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
