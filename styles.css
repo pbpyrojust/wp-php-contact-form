@@ -6,9 +6,15 @@
 #cf_send { padding: 5px 10px; }
 
 .grid2col { width: 100%; }
-.grid2col .column:first-of-type { width: 19%; }
-.grid2col .column:last-of-type { width: 79%; }
+.grid2col .column:first-of-type {
+	width: 19%;
+	display: inline-block;
+}
+.grid2col .column:last-of-type {
+	width: 79%;
+	display: inline-block;
+}
 
-.name-row, .gender-state-birth-row {
+.grid2col .column .name-row div, .grid2col .column .gender-state-birth-row div {
 	display: inline-block;
 }
