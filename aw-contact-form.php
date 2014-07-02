@@ -37,7 +37,8 @@ function aw_contact_form_sc( $atts ) {
     "label_tobacco" => "Have You Used Tobacco?",
     "label_policy_amount" => "Insurance Policy Amount?",
     "label_how_many_years" => "For How Many Years?",
-    "label_email" => "Your E-mail Address",
+    "label_email" => "Email Address",
+    "label_re_email" => "Re-Enter Email Address",
     "label_subject" => "Subject",
     "label_message" => "Your Message",
     "label_submit" => "Submit",
@@ -53,7 +54,7 @@ function aw_contact_form_sc( $atts ) {
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $error = false;
     // set the "required fields" to check
-    $required_fields = array( "first_name", "email", "message", "subject" );
+    $required_fields = array( "first_name", "email" );
  
     // this part fetches everything that has been POSTed, sanitizes them and lets us use them as $form_data['subject']
     foreach ( $_POST as $field => $value ) {
@@ -80,7 +81,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
  
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        $email_message = $form_data['message'] . "\n\nIP: " . aw_contact_get_the_ip();
+        $email_message = "\n\n First Name: " $form_data['first_name'] . "\n\n IP: " . aw_contact_get_the_ip();
         $headers  = "From: " . $form_data['name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
@@ -93,7 +94,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the website's name and puts it in front of the subject
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
         // get the message from the form and add the IP address of the user below it
-        $email_message = $form_data['message'] . "\n\nIP: " . aw_contact_get_the_ip();
+        $email_message = "\n\n First Name: " $form_data['first_name'] . "\n\n IP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
         $headers  = "From: " . $form_data['first_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
@@ -284,18 +285,29 @@ $email_form = '<?php $states = statesList(); ?>
 		</div>
     </div>
     
-    
-    
-    
-    <div>
-        <label for="cf_email">' . $label_email . ':</label>
-        <input type="text" name="email" id="cf_email" size="50" maxlength="50" value="' . $form_data['email'] . '" />
+    <div class="grid2col">
+    	<div class="column">
+			<h2>Contact</h2>
+		</div>
+		<div class="column">
+			<div class="row">
+				<div>
+					<label for="cf_email">' . $label_email . '</label>
+					<input type="text" name="email" id="cf_email" size="50" maxlength="50" value="' . $form_data['email'] . '" />
+				</div>
+				<div>
+					<label for="cf_re_email">' . $label_re_email . '</label>
+					<input type="text" name="re_email" id="cf_re_email" size="50" maxlength="50" value="' . $form_data['re_email'] . '" />
+				</div>
+				<div>
+					<label for="cf_phone">' . $label_phone . '</label>
+					<input type="text" name="phone" id="cf_phone" size="50" maxlength="50" value="' . $form_data['phone'] . '" />
+				</div>
+			</div>
+		</div>
     </div>
-    <div>
-        <label for="cf_message">' . $label_message . ':</label>
-        <textarea name="message" id="cf_message" cols="50" rows="15">' . $form_data['message'] . '</textarea>
-    </div>
-    <div>
+    
+     <div>
         <input type="submit" value="' . $label_submit . '" name="send" id="cf_send" />
     </div>
 </form>';
