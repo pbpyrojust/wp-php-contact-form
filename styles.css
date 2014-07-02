@@ -15,6 +15,6 @@
 	display: inline-block;
 }
 
-.grid2col .column .name-row div, .grid2col .column .gender-state-birth-row div {
+.grid2col .column row div {
 	display: inline-block;
 }

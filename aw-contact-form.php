@@ -32,6 +32,11 @@ function aw_contact_form_sc( $atts ) {
     "label_gender" => "Gender",
     "label_state" => "What State Do You Live In?",
     "label_birth_month" => "Date of Birth",
+    "label_height" => "What Is Your Height?",
+    "label_weight" => "What is Your Weight?",
+    "label_tobacco" => "Have You Used Tobacco?",
+    "label_policy_amount" => "Insurance Policy Amount?",
+    "label_how_many_years" => "For How Many Years?",
     "label_email" => "Your E-mail Address",
     "label_subject" => "Subject",
     "label_message" => "Your Message",
@@ -163,14 +168,14 @@ function statesList() {
 }
 
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
-$email_form = '<?php $states = statesList(); ?> 
+$email_form = '<?php $states = statesList(); ?>
 <form class="aw-contact-form" method="post" action="' . get_permalink() . '">
 	<div class="grid2col">
 		<div class="column">
 			<h2>About You</h2>
 		</div>
 		<div class="column">
-			<div class="name-row">
+			<div class="row">
 			    <div>
 			        <label for="cf__first_name">' . $label_first_name . '</label>
 			        <input type="text" name="first_name" id="cf_name" size="50" maxlength="50" value="' . $form_data['first_name'] . '" />
@@ -181,31 +186,25 @@ $email_form = '<?php $states = statesList(); ?>
 			    </div>
 			    <div>
 			        <label for="cf_last_name">' . $label_last_name . '</label>
-			        <input type="text" name="last_name" id="cf_last_name" size="50" maxlength="50" value="' . $form_data['ast_name'] . '" />
+			        <input type="text" name="last_name" id="cf_last_name" size="50" maxlength="50" value="' . $form_data['last_name'] . '" />
 			    </div>
-		    </div>
-		</div>
-    </div>
-    
-    <div class="grid2col">
-    	<div class="column">
-			<h2>Quote Info</h2>
-		</div>
-		<div class="column">
-		    <div class="gender-state-birth-row">
+			    <div class="row">
 			    <div>
 			        <label for="cf_gender">' . $label_gender . '</label>
 			        <select name="gender" id="cf_gender">
+			        	<option selected="selected"></option>
 						<option value="male" value="' . $form_data['male'] . '">Male</option>
 						<option value="female" value="' . $form_data['female'] . '">Female</option>
 					</select>
 			    </div>
 			    <div>
 			        <label for="cf_state">' . $label_state . '</label>
-			        <option selected="selected">Select your state...</option>
-						<?php foreach($states as $key=>$value) { ?>
-						<option value="<?php echo $key; ?>"><?php $value; ?></option>
-					<?php } ?>
+			        <select name="state" id="cf_state">
+						<option selected="selected"></option>
+							<?php foreach($states as $key=>$value) { ?>
+							<option value="<?php echo $key; ?>"><?php $value; ?></option>
+							<?php } ?>
+					</select>
 			    </div>
 			    <div>
 			        <label for="cf_month">' . $label_birth_month . '</label>
@@ -220,6 +219,68 @@ $email_form = '<?php $states = statesList(); ?>
 			        <input type="text" name="year" id="cf_year" size="4" maxlength="4" value="YYYY' . $form_data['birth_year'] . '" />
 			    </div>
 		    </div>
+		    </div>
+		</div>
+    </div>
+    
+    <div class="grid2col">
+    	<div class="column">
+			<h2>Quote Info</h2>
+		</div>
+		<div class="column">
+			<div class="row">
+				<div>
+					<label for="cf_feet">' . $label_feet . '</label>
+				        <select name="feet" id="cf_feet">
+							<option selected="selected">Feet</option>
+								<?php foreach($feet as $key=>$value) { ?>
+								<option value="<?php echo $key; ?>"><?php $value; ?></option>
+								<?php } ?>
+						</select>
+				</div>
+				<div>
+					<label for="cf_inches">' . $label_inches . '</label>
+			        <select name="inches" id="cf_inches">
+						<option selected="selected">Inches</option>
+							<?php foreach($inches as $key=>$value) { ?>
+							<option value="<?php echo $key; ?>"><?php $value; ?></option>
+							<?php } ?>
+					</select>
+				</div>
+				<div>
+			        <label for="cf_weight">' . $label_weight . '</label>
+			        <input type="text" name=weight id="cf_weight" size="50" maxlength="50" value="' . $form_data['weight'] . '" />
+			    </div>
+				<div>
+			        <label for="cf_tobacco">' . $label_tobacco . '</label>
+			        <select name="tobacco" id="cf_tobacco">
+						<option selected="selected"></option>
+							<?php foreach($tobacco as $key=>$value) { ?>
+							<option value="<?php echo $key; ?>"><?php $value; ?></option>
+							<?php } ?>
+					</select>
+			    </div>
+			</div>
+			<div class="row">
+				<div>
+					<label for="cf_policy_amount">' . $label_policy_amount . '</label>
+				        <select name="policy_amount" id="cf_policy_amount">
+							<option selected="selected"></option>
+								<?php foreach($policy_amount as $key=>$value) { ?>
+								<option value="<?php echo $key; ?>"><?php $value; ?></option>
+								<?php } ?>
+						</select>
+				</div>
+				<div>
+					<label for="cf_how_many_years">' . $label_how_many_years . '</label>
+				        <select name="how_many_years" id="cf_how_many_years">
+							<option selected="selected"></option>
+								<?php foreach($how_many_years as $key=>$value) { ?>
+								<option value="<?php echo $key; ?>"><?php $value; ?></option>
+								<?php } ?>
+						</select>
+				</div>
+			</div>
 		</div>
     </div>
     
