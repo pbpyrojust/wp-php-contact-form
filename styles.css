@@ -4,3 +4,11 @@
 .aw-contact-form input { padding: 5px; }
 #cf_message { width: 90%; padding: 10px; }
 #cf_send { padding: 5px 10px; }
+
+.grid2col { width: 100%; }
+.grid2col .column:first-of-type { width: 19%; }
+.grid2col .column:last-of-type { width: 79%; }
+
+.name-row, .gender-state-birth-row {
+	display: inline-block;
+}

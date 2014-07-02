@@ -29,6 +29,9 @@ function aw_contact_form_sc( $atts ) {
     "label_first_name" => "First Name",
     "label_middle_name" => "Middle Name",
     "label_last_name" => "Last Name",
+    "label_gender" => "Gender",
+    "label_state" => "What State Do You Live In?",
+    "label_birth_month" => "Date of Birth",
     "label_email" => "Your E-mail Address",
     "label_subject" => "Subject",
     "label_message" => "Your Message",
@@ -121,46 +124,55 @@ function showOptionsDrop($array, $active, $echo=true){
 
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
 $email_form = '<form class="aw-contact-form" method="post" action="' . get_permalink() . '">
-
-    <div>
-        <label for="cf__first_name">' . $label_first_name . ':</label>
-        <input type="text" name="first_name" id="cf_name" size="50" maxlength="50" value="' . $form_data['first_name'] . '" />
-    </div>
-    <div>
-        <label for="cf_middle_name">' . $label_middle_name . ':</label>
-        <input type="text" name="middle_name" id="cf_middle_name" size="50" maxlength="50" value="' . $form_data['middle_name'] . '" />
-    </div>
-    <div>
-        <label for="cf_last_name">' . $label_last_name . ':</label>
-        <input type="text" name="last_name" id="cf_last_name" size="50" maxlength="50" value="' . $form_data['ast_name'] . '" />
-    </div>
-    
-    <div>
-        <label for="cf_gender">' . $label_gender . ':</label>
-        <select name="gender" id="cf_gender">
-			<option value="male" value="' . $form_data['male'] . '">Male</option>
-			<option value="female" value="' . $form_data['female'] . '">Female</option>
-		</select>
-    </div>
-    <div>
-        <label for="cf_state">' . $label_state . ':</label>
-        <select name="state" id="cf_state">
-			<option value="0">Choose a state</option>
-			<?php showOptionsDrop($states_arr, null, true); ?>
-		</select>
+	<div class="grid2col">
+		<div class="column">
+			<h2>About You</h2>
+		</div>
+		<div class="column">
+			<div class="name-row">
+			    <div>
+			        <label for="cf__first_name">' . $label_first_name . '</label>
+			        <input type="text" name="first_name" id="cf_name" size="50" maxlength="50" value="' . $form_data['first_name'] . '" />
+			    </div>
+			    <div>
+			        <label for="cf_middle_name">' . $label_middle_name . '</label>
+			        <input type="text" name="middle_name" id="cf_middle_name" size="50" maxlength="50" value="' . $form_data['middle_name'] . '" />
+			    </div>
+			    <div>
+			        <label for="cf_last_name">' . $label_last_name . '</label>
+			        <input type="text" name="last_name" id="cf_last_name" size="50" maxlength="50" value="' . $form_data['ast_name'] . '" />
+			    </div>
+		    </div>
+		</div>
     </div>
     
-    <div>
-        <label for="cf_month">' . $label_birth_month . ':</label>
-        <input type="text" name="month" id="cf_month" size="2" maxlength="2" value="MM' . $form_data['birth_month'] . '" />
-    </div>
-    <div>
-        <label for="cf_day">' . $label_birth_day . ':</label>
-        <input type="text" name="day" id="cf_day" size="2" maxlength="2" value="DD' . $form_data['birth_day'] . '" />
-    </div>
-    <div>
-        <label for="cf_year">' . $label_birth_year . ':</label>
-        <input type="text" name="year" id="cf_year" size="4" maxlength="4" value="YYYY' . $form_data['birth_year'] . '" />
+    <div class="gender-state-birth-row">
+	    <div>
+	        <label for="cf_gender">' . $label_gender . '</label>
+	        <select name="gender" id="cf_gender">
+				<option value="male" value="' . $form_data['male'] . '">Male</option>
+				<option value="female" value="' . $form_data['female'] . '">Female</option>
+			</select>
+	    </div>
+	    <div>
+	        <label for="cf_state">' . $label_state . '</label>
+	        <select name="state" id="cf_state">
+				<option value="0">Choose a state</option>
+				<?php showOptionsDrop($states_arr, null, true); ?>
+			</select>
+	    </div>
+	    <div>
+	        <label for="cf_month">' . $label_birth_month . '</label>
+	        <input type="text" name="month" id="cf_month" size="2" maxlength="2" value="MM' . $form_data['birth_month'] . '" />
+	    </div>
+	    <div>
+	        <label for="cf_day">' . $label_birth_day . '</label>
+	        <input type="text" name="day" id="cf_day" size="2" maxlength="2" value="DD' . $form_data['birth_day'] . '" />
+	    </div>
+	    <div>
+	        <label for="cf_year">' . $label_birth_year . '</label>
+	        <input type="text" name="year" id="cf_year" size="4" maxlength="4" value="YYYY' . $form_data['birth_year'] . '" />
+	    </div>
     </div>
     
     
