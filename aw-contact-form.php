@@ -102,7 +102,20 @@ if ( $result != "" ) {
     $info = '<div class="info">' . $result . '</div>';
 }
 // states array for dropdown
-    $states_arr = array('AL'=>"Alabama",'AK'=>"Alaska",'AZ'=>"Arizona",'AR'=>"Arkansas",'CA'=>"California",'CO'=>"Colorado",'CT'=>"Connecticut",'DE'=>"Delaware",'DC'=>"District Of Columbia",'FL'=>"Florida",'GA'=>"Georgia",'HI'=>"Hawaii",'ID'=>"Idaho",'IL'=>"Illinois", 'IN'=>"Indiana", 'IA'=>"Iowa",  'KS'=>"Kansas",'KY'=>"Kentucky",'LA'=>"Louisiana",'ME'=>"Maine",'MD'=>"Maryland", 'MA'=>"Massachusetts",'MI'=>"Michigan",'MN'=>"Minnesota",'MS'=>"Mississippi",'MO'=>"Missouri",'MT'=>"Montana",'NE'=>"Nebraska",'NV'=>"Nevada",'NH'=>"New Hampshire",'NJ'=>"New Jersey",'NM'=>"New Mexico",'NY'=>"New York",'NC'=>"North Carolina",'ND'=>"North Dakota",'OH'=>"Ohio",'OK'=>"Oklahoma", 'OR'=>"Oregon",'PA'=>"Pennsylvania",'RI'=>"Rhode Island",'SC'=>"South Carolina",'SD'=>"South Dakota",'TN'=>"Tennessee",'TX'=>"Texas",'UT'=>"Utah",'VT'=>"Vermont",'VA'=>"Virginia",'WA'=>"Washington",'WV'=>"West Virginia",'WI'=>"Wisconsin",'WY'=>"Wyoming");
+$states_arr = array('AL'=>"Alabama",'AK'=>"Alaska",'AZ'=>"Arizona",'AR'=>"Arkansas",'CA'=>"California",'CO'=>"Colorado",'CT'=>"Connecticut",'DE'=>"Delaware",'DC'=>"District Of Columbia",'FL'=>"Florida",'GA'=>"Georgia",'HI'=>"Hawaii",'ID'=>"Idaho",'IL'=>"Illinois", 'IN'=>"Indiana", 'IA'=>"Iowa",  'KS'=>"Kansas",'KY'=>"Kentucky",'LA'=>"Louisiana",'ME'=>"Maine",'MD'=>"Maryland", 'MA'=>"Massachusetts",'MI'=>"Michigan",'MN'=>"Minnesota",'MS'=>"Mississippi",'MO'=>"Missouri",'MT'=>"Montana",'NE'=>"Nebraska",'NV'=>"Nevada",'NH'=>"New Hampshire",'NJ'=>"New Jersey",'NM'=>"New Mexico",'NY'=>"New York",'NC'=>"North Carolina",'ND'=>"North Dakota",'OH'=>"Ohio",'OK'=>"Oklahoma", 'OR'=>"Oregon",'PA'=>"Pennsylvania",'RI'=>"Rhode Island",'SC'=>"South Carolina",'SD'=>"South Dakota",'TN'=>"Tennessee",'TX'=>"Texas",'UT'=>"Utah",'VT'=>"Vermont",'VA'=>"Virginia",'WA'=>"Washington",'WV'=>"West Virginia",'WI'=>"Wisconsin",'WY'=>"Wyoming");
+
+// dropdown function for states    
+function showOptionsDrop($array, $active, $echo=true){
+    $string = '';
+
+    foreach($array as $k => $v){
+        $s = ($active == $k)? ' selected="selected"' : '';
+        $string .= '<option value="'.$k.'"'.$s.'>'.$v.'</option>'."\n";
+    }
+
+    if($echo)   echo $string;
+    else        return $string;
+}
 
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
 $email_form = '<form class="aw-contact-form" method="post" action="' . get_permalink() . '">
@@ -113,38 +126,39 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
     </div>
     <div>
         <label for="cf_middle_name">' . $label_middle_name . ':</label>
-        <input type="text" name="middle_name" id="cf_middle_name" size="50" maxlength="50" value="' . $form_data['first_middle_name'] . '" />
+        <input type="text" name="middle_name" id="cf_middle_name" size="50" maxlength="50" value="' . $form_data['middle_name'] . '" />
     </div>
     <div>
         <label for="cf_last_name">' . $label_last_name . ':</label>
-        <input type="text" name="last_name" id="cf_last_name" size="50" maxlength="50" value="' . $form_data['first_last_name'] . '" />
+        <input type="text" name="last_name" id="cf_last_name" size="50" maxlength="50" value="' . $form_data['ast_name'] . '" />
     </div>
     
     <div>
         <label for="cf_gender">' . $label_gender . ':</label>
-        <select name="gender" size="50">
+        <select name="gender" id="cf_gender">
 			<option value="male" value="' . $form_data['male'] . '">Male</option>
 			<option value="female" value="' . $form_data['female'] . '">Female</option>
 		</select>
     </div>
     <div>
         <label for="cf_state">' . $label_state . ':</label>
-        <select name="gender" size="50">
-			<option value="male" value="' . $form_data['male'] . '">Male</option>
-			<option value="female" value="' . $form_data['female'] . '">Female</option>
+        <select name="state" id="cf_state">
+			<option value="0">Choose a state</option>
+			<?php showOptionsDrop($states_arr, null, true); ?>
 		</select>
     </div>
+    
     <div>
-        <label for="cf_name">' . $label_birth_month . ':</label>
-        <input type="text" name="your_name" id="cf_name" size="2" maxlength="2" value="MM' . $form_data['first_birth_month'] . '" />
+        <label for="cf_month">' . $label_birth_month . ':</label>
+        <input type="text" name="month" id="cf_month" size="2" maxlength="2" value="MM' . $form_data['birth_month'] . '" />
     </div>
     <div>
-        <label for="cf_name">' . $label_birth_day . ':</label>
-        <input type="text" name="your_name" id="cf_name" size="2" maxlength="2" value="DD' . $form_data['first_birth_day'] . '" />
+        <label for="cf_day">' . $label_birth_day . ':</label>
+        <input type="text" name="day" id="cf_day" size="2" maxlength="2" value="DD' . $form_data['birth_day'] . '" />
     </div>
     <div>
-        <label for="cf_name">' . $label_birth_year . ':</label>
-        <input type="text" name="your_name" id="cf_name" size="4" maxlength="4" value="YYYY' . $form_data['first_birth_year'] . '" />
+        <label for="cf_year">' . $label_birth_year . ':</label>
+        <input type="text" name="year" id="cf_year" size="4" maxlength="4" value="YYYY' . $form_data['birth_year'] . '" />
     </div>
     
     
