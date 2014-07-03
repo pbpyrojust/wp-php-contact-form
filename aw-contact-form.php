@@ -83,7 +83,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
         $email_message = "First Name: " . $form_data['first_name'] . "\nIP: " . aw_contact_get_the_ip();
-        $headers  = "From: " . $form_data['name'] . " <" . $form_data['email'] . ">\n";
+        $headers  = "From: " . $form_data['first_name'] .  $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         wp_mail( $email, $email_subject, $email_message, $headers );
@@ -97,7 +97,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the message from the form and add the IP address of the user below it
         $email_message = "First Name: " . $form_data['first_name'] . "\nIP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
-        $headers  = "From: " . $form_data['first_name'] . " <" . $form_data['email'] . ">\n";
+        $headers  = "From: " . $form_data['first_name'] .  $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         // send the e-mail with the shortcode attribute named 'email' and the POSTed data
@@ -177,6 +177,20 @@ function statesList() {
 }
 $states = statesList();
 
+function feetList() {
+	$feet = array('1'=>"1'",
+  '2'=>"2'",
+  '3'=>"3'",
+  '4'=>"4'",
+  '5'=>"5'",
+  '6'=>"6'",
+  '7'=>"7'",
+  '8'=>"8'",
+  '9'=>"9'");
+	return $feet;
+}
+$feet = feetList();
+
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
 $email_form = '<?php $states = statesList(); ?>
 <form class="aw-contact-form" method="post" action="' . get_permalink() . '">
@@ -244,11 +258,11 @@ $email_form = '<?php $states = statesList(); ?>
 				<div>
 					<label for="cf_feet">' . $label_feet . '</label>
 				        <select name="feet" id="cf_feet">
-							<option selected="selected">Feet</option>
-								<?php foreach($feet as $key=>$value) { ?>
-								<option value="<?php echo $key; ?>"><?php $value; ?></option>
-								<?php } ?>
-						</select>
+							<option selected="selected"></option>';
+							foreach ($feet as $key => $value) {
+							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
+							}
+					$email_form .= '</select>
 				</div>
 				<div>
 					<label for="cf_inches">' . $label_inches . '</label>
