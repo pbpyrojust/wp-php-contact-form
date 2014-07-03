@@ -439,7 +439,8 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
         <label for="cf_subject" style="visibility: hidden;">' . $subject . '</label>
 		<input type="hidden" name="subject" id="cf_subject" size="25" maxlength="50" value="' . $form_data['subject'] . '" />
     </div>
-</form>';
+</form>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>';
 
 if ( $sent == true ) {
     return $info;
