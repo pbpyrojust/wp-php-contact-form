@@ -25,13 +25,15 @@ function aw_contact_form_sc( $atts ) {
     extract( shortcode_atts( array(
     // if you don't provide an e-mail address, the shortcode will pick the e-mail address of the admin:
     "email" => get_bloginfo( 'admin_email' ),
-    "subject" => "",
+    "subject" => " ",
     "label_first_name" => "First Name",
     "label_middle_name" => "Middle Name",
     "label_last_name" => "Last Name",
     "label_gender" => "Gender",
     "label_state" => "What State Do You Live In?",
     "label_birth_month" => "Date of Birth",
+    "label_birth_day" => " ",
+    "label_birth_year" => " ",
     "label_height" => "What Is Your Height?",
     "label_weight" => "What is Your Weight?",
     "label_tobacco" => "Have You Used Tobacco?",
@@ -55,7 +57,7 @@ function aw_contact_form_sc( $atts ) {
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $error = false;
     // set the "required fields" to check
-    $required_fields = array( "first_name", "last_name", "birth_month", "birth_day", "birth_year", "email", "phone" );
+    $required_fields = array( "first_name" );
  
     // this part fetches everything that has been POSTed, sanitizes them and lets us use them as $form_data['subject']
     foreach ( $_POST as $field => $value ) {
@@ -82,8 +84,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
  
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nBirth Month: " . $form_data["birth_month"] . "\nBirth Day: " . $form_data["birth_day"] . "\nBirth Year: " . $form_data["birth_year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
-        $headers  = "From: " . $form_data['first_name'] . " , "  . $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
+        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nState: " . $_POST["states"] . "\nBirth Month: " . $form_data["birth_month"] . "\nBirth Day: " . $form_data["birth_day"] . "\nBirth Year: " . $form_data["birth_year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
+        $headers  = "From: " . $form_data['first_name'] . " "  . $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         wp_mail( $email, $email_subject, $email_message, $headers );
@@ -95,9 +97,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the website's name and puts it in front of the subject
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
         // get the message from the form and add the IP address of the user below it
-        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nBirth Month: " . $form_data["birth_month"] . "\nBirth Day: " . $form_data["birth_day"] . "\nBirth Year: " . $form_data["birth_year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
+        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nState: " . $_POST["states"] . "\nBirth Month: " . $form_data["birth_month"] . "\nBirth Day: " . $form_data["birth_day"] . "\nBirth Year: " . $form_data["birth_year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
-        $headers  = "From: " . $form_data['first_name'] . " , " . $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
+        $headers  = "From: " . $form_data['first_name'] . " " . $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         // send the e-mail with the shortcode attribute named 'email' and the POSTed data
@@ -334,15 +336,15 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			    </div>
 			    <div>
 			        <label for="cf_month">' . $label_birth_month . '</label>
-			        <input type="text" name="month" id="cf_month" size="2" maxlength="2" value="MM' . $form_data['birth_month'] . '" />
+			        <input type="text" name="month" id="cf_month" size="2" maxlength="4" value="MM"'. $form_data['birth_month'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_day">' . $label_birth_day . '</label>
-			        <input type="text" name="day" id="cf_day" size="2" maxlength="2" value="DD' . $form_data['birth_day'] . '" />
+			        <input type="text" name="day" id="cf_day" size="2" maxlength="4" value="DD"'. $form_data['birth_day'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_year">' . $label_birth_year . '</label>
-			        <input type="text" name="year" id="cf_year" size="4" maxlength="4" value="YYYY' . $form_data['birth_year'] . '" />
+			        <input type="text" name="year" id="cf_year" size="4" maxlength="4" value="YYYY"'. $form_data['birth_year'] . '" />
 			    </div>
 		    </div>
 		    </div>
