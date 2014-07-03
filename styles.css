@@ -5,11 +5,16 @@
 #cf_message { width: 90%; padding: 10px; }
 #cf_send { padding: 5px 10px; }
 
+@media only screen and (max-width: 600px) {
+	.grid2col, .grid2col .column:first-of-type { display: block !important; }
+}
 .grid2col { 
 	width: 100%;
 	display: inline-flex;
 	display: -webkit-inline-flex;
+	border-bottom: 1px solid #d2d2d2;
 }
+.grid2col:last-of-typr { border-bottom: 0; }
 .grid2col .column:first-of-type {
 	width: 19%;
 	display: inline-block;
@@ -25,3 +30,4 @@
 	background: #fff url() top left no-repeat;
 	border: 1px solid #cbcbcb;
 }
+.grid2col .row { margin-bottom: 10px; }
