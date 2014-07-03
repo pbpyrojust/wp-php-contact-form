@@ -380,7 +380,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				<div>
 			        <label for="cf_tobacco">' . $label_tobacco . '</label>
 			        <select name="tobacco" id="cf_tobacco">
-						<option selected="selected">Feet</option>';
+						<option selected="selected"></option>';
 							foreach ($tobacco as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
 							}
@@ -391,7 +391,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				<div>
 					<label for="cf_policy_amount">' . $label_policy_amount . '</label>
 				        <select name="policy_amount" id="cf_policy_amount">
-							<option selected="selected">Feet</option>';
+							<option selected="selected"></option>';
 							foreach ($policyAmount as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
 							}
@@ -400,7 +400,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				<div>
 					<label for="cf_how_many_years">' . $label_how_many_years . '</label>
 				        <select name="how_many_years" id="cf_how_many_years">
-							<option selected="selected">Feet</option>';
+							<option selected="selected"></option>';
 							foreach ($howManyYears as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
 							}
