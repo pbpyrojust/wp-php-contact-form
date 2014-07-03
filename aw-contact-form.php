@@ -39,6 +39,7 @@ function aw_contact_form_sc( $atts ) {
     "label_how_many_years" => "For How Many Years?",
     "label_email" => "Email Address",
     "label_re_email" => "Re-Enter Email Address",
+    "label_phone" => "Phone Number",
     "label_subject" => "Subject",
     "label_message" => "Your Message",
     "label_submit" => "Submit",
