@@ -14,7 +14,7 @@
 	display: -webkit-inline-flex;
 	border-bottom: 1px solid #d2d2d2;
 }
-.grid2col:last-of-typr { border-bottom: 0; }
+.grid2col:last-of-type { border-bottom: 0; }
 .grid2col .column:first-of-type {
 	width: 19%;
 	display: inline-block;
@@ -23,6 +23,10 @@
 	width: 79%;
 	display: inline-block;
 }
+.grid2col .column:first-of-type h2 {
+	margin-top: 10px;
+	text-transform: none;
+}
 .grid2col .column .row div { display: inline-block; }
 .grid2col .column .row div input, .grid2col .column .row div select {
 	height: 50px;
@@ -30,4 +34,4 @@
 	background: #fff url() top left no-repeat;
 	border: 1px solid #cbcbcb;
 }
-.grid2col .row { margin-bottom: 10px; }
+.grid2col .row { margin-bottom: 8px !important; }
