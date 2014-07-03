@@ -2,6 +2,7 @@
 .aw-contact-form label, .aw-contact-form input, .aw-contact-form textarea { display: block; margin: 10px 0; }
 .aw-contact-form label { font-size: larger; }
 .aw-contact-form input { padding: 5px; }
+.aw-contact-form input:active, .aw-contact-form input:hover { border: 1px solid #000; }
 #cf_message { width: 90%; padding: 10px; }
 #cf_send { padding: 5px 10px; }
 
@@ -14,13 +15,14 @@
 	display: -webkit-inline-flex;
 	border-bottom: 1px solid #d2d2d2;
 }
-.grid2col:last-of-type { border-bottom: 0; }
+.grid2col:nth-of-type(3) { border-bottom: 0 !important; }
 .grid2col .column:first-of-type {
 	width: 19%;
 	display: inline-block;
 }
 .grid2col .column:last-of-type {
-	width: 79%;
+	padding-left: 15px;
+	width: 81%;
 	display: inline-block;
 }
 .grid2col .column:first-of-type h2 {
@@ -35,3 +37,9 @@
 	border: 1px solid #cbcbcb;
 }
 .grid2col .row { margin-bottom: 8px !important; }
+.grid2col:first-of-type .row:first-of-type div:first-of-type,
+.grid2col:first-of-type .row:first-of-type div:nth-of-type(2) { margin-right: 20px; }
+.grid2col:first-of-type .row:last-of-type div:nth-of-type(3) { margin-right: -22px; }
+.grid2col:first-of-type .row:nth-of-type(2) div:nth-of-type(4) { margin-right: 16px; }
+#cf_gender,
+#cf_state { width: 277px; }

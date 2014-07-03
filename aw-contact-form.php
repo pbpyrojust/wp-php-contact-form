@@ -304,15 +304,15 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 			    <div>
 			        <label for="cf_first_name">' . $label_first_name . '</label>
-			        <input type="text" name="first_name" id="cf_first_name" size="25" maxlength="50" value="' . $form_data['first_name'] . '" />
+			        <input type="text" name="first_name" id="cf_first_name" size="26" maxlength="50" value="' . $form_data['first_name'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_middle_name">' . $label_middle_name . '</label>
-			        <input type="text" name="middle_name" id="cf_middle_name" size="25" maxlength="50" value="' . $form_data['middle_name'] . '" />
+			        <input type="text" name="middle_name" id="cf_middle_name" size="26" maxlength="50" value="' . $form_data['middle_name'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_last_name">' . $label_last_name . '</label>
-			        <input type="text" name="last_name" id="cf_last_name" size="25" maxlength="50" value="' . $form_data['last_name'] . '" />
+			        <input type="text" name="last_name" id="cf_last_name" size="26" maxlength="50" value="' . $form_data['last_name'] . '" />
 			    </div>
 				<div class="row">
 				    <div>
@@ -336,15 +336,15 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				    </div>
 				    <div>
 				        <label for="cf_month">' . $label_month . '</label>
-				        <input type="text" name="month" id="cf_month" size="2" maxlength="2" value="MM"'. $form_data['month'] . '" />
+				        <input type="text" name="month" id="cf_month" size="2" maxlength="4" value="MM"'. $form_data['month'] . '" />
 				    </div>
 				    <div>
 				        <label for="cf_day">' . $label_day . '</label>
-				        <input type="text" name="day" id="cf_day" size="2" maxlength="2" value="DD"'. $form_data['day'] . '" />
+				        <input type="text" name="day" id="cf_day" size="2" maxlength="4" value="DD"'. $form_data['day'] . '" />
 				    </div>
 				    <div>
 				        <label for="cf_year">' . $label_year . '</label>
-				        <input type="text" name="year" id="cf_year" size="4" maxlength="4" value="YYYY"'. $form_data['year'] . '" />
+				        <input type="text" name="year" id="cf_year" size="8" maxlength="8" value="YYYY"'. $form_data['year'] . '" />
 				    </div>
 				</div>
 		    </div>
