@@ -82,8 +82,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
  
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        $email_message = "First Name: " . $form_data['first_name'] . "\nIP: " . aw_contact_get_the_ip();
-        $headers  = "From: " . $form_data['first_name'] .  $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
+        $email_message = "First Name: " . $form_data['first_name'] . "\nLast Name: " . $form_data['last_name'] . "\nIP: " . aw_contact_get_the_ip();
+        $headers  = "From: " . $form_data['first_name'] . " "  . $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         wp_mail( $email, $email_subject, $email_message, $headers );
@@ -95,9 +95,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the website's name and puts it in front of the subject
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
         // get the message from the form and add the IP address of the user below it
-        $email_message = "First Name: " . $form_data['first_name'] . "\nIP: " . aw_contact_get_the_ip();
+         $email_message = "First Name: " . $form_data['first_name'] . "\nLast Name: " . $form_data['last_name'] . "\nIP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
-        $headers  = "From: " . $form_data['first_name'] .  $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
+        $headers  = "From: " . $form_data['first_name'] . " " . $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         // send the e-mail with the shortcode attribute named 'email' and the POSTed data
@@ -178,22 +178,47 @@ function statesList() {
 $states = statesList();
 
 function feetList() {
-	$feet = array('1'=>"1'",
-  '2'=>"2'",
-  '3'=>"3'",
+	$feet = array('3'=>"3'",
   '4'=>"4'",
   '5'=>"5'",
   '6'=>"6'",
-  '7'=>"7'",
-  '8'=>"8'",
-  '9'=>"9'");
+  '7'=>"7'");
 	return $feet;
 }
 $feet = feetList();
 
+function inchesList() {
+	$inches = array('0'=>"0",
+  '1'=>"1",
+  '2'=>"2",
+  '3'=>"3",
+  '4'=>"4",
+  '5'=>"5",
+  '6'=>"6",
+  '7'=>"7", 
+  '8'=>"8",
+  '9'=>"9",
+  '10'=>"10",
+  '11'=>"11",
+   '12'=>"12"); 
+	return $inches;
+}
+$inches = inchesList();
+
+function tobaccoList() {
+	$tobacco = array('Never'=>"Never Used",
+  'Now'=>"Now Using",
+  'Stopped'=>"Stopped Using");
+	return $tobacco;
+}
+$tobacco = tobaccoList();
+
+function policyAmountList() {
+  $policyAmount = a
+}
+
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
-$email_form = '<?php $states = statesList(); ?>
-<form class="aw-contact-form" method="post" action="' . get_permalink() . '">
+$email_form = '<form class="aw-contact-form" method="post" action="' . get_permalink() . '">
 	<div class="grid2col">
 		<div class="column">
 			<h2>About You</h2>
@@ -258,7 +283,7 @@ $email_form = '<?php $states = statesList(); ?>
 				<div>
 					<label for="cf_feet">' . $label_feet . '</label>
 				        <select name="feet" id="cf_feet">
-							<option selected="selected"></option>';
+							<option selected="selected">Feet</option>';
 							foreach ($feet as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
 							}
@@ -267,24 +292,24 @@ $email_form = '<?php $states = statesList(); ?>
 				<div>
 					<label for="cf_inches">' . $label_inches . '</label>
 			        <select name="inches" id="cf_inches">
-						<option selected="selected">Inches</option>
-							<?php foreach($inches as $key=>$value) { ?>
-							<option value="<?php echo $key; ?>"><?php $value; ?></option>
-							<?php } ?>
-					</select>
+						<option selected="selected">Inches</option>';
+							foreach ($inches as $key => $value) {
+							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
+							}
+					$email_form .= '</select>
 				</div>
 				<div>
 			        <label for="cf_weight">' . $label_weight . '</label>
-			        <input type="text" name=weight id="cf_weight" size="25" maxlength="50" value="' . $form_data['weight'] . '" />
+			        <input type="text" name=weight id="cf_weight" size="25" maxlength="50" value="lbs"'. $form_data['weight'] . '" />
 			    </div>
 				<div>
 			        <label for="cf_tobacco">' . $label_tobacco . '</label>
 			        <select name="tobacco" id="cf_tobacco">
-						<option selected="selected"></option>
-							<?php foreach($tobacco as $key=>$value) { ?>
-							<option value="<?php echo $key; ?>"><?php $value; ?></option>
-							<?php } ?>
-					</select>
+						<option selected="selected">Feet</option>';
+							foreach ($tobacco as $key => $value) {
+							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
+							}
+					$email_form .= '</select>
 			    </div>
 			</div>
 			<div class="row">
