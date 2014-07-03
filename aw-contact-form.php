@@ -25,15 +25,15 @@ function aw_contact_form_sc( $atts ) {
     extract( shortcode_atts( array(
     // if you don't provide an e-mail address, the shortcode will pick the e-mail address of the admin:
     "email" => get_bloginfo( 'admin_email' ),
-    "subject" => " ",
+    "subject" => "",
     "label_first_name" => "First Name",
     "label_middle_name" => "Middle Name",
     "label_last_name" => "Last Name",
     "label_gender" => "Gender",
     "label_state" => "What State Do You Live In?",
-    "label_birth_month" => "Date of Birth",
-    "label_birth_day" => " ",
-    "label_birth_year" => " ",
+    "label_month" => "Date of Birth",
+    "label_day" => "",
+    "label_year" => "",
     "label_height" => "What Is Your Height?",
     "label_weight" => "What is Your Weight?",
     "label_tobacco" => "Have You Used Tobacco?",
@@ -84,7 +84,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
  
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nState: " . $_POST["states"] . "\nBirth Month: " . $form_data["birth_month"] . "\nBirth Day: " . $form_data["birth_day"] . "\nBirth Year: " . $form_data["birth_year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
+        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nState: " . $_POST["states"] . "\nBirth Month: " . $form_data["month"] . "\nBirth Day: " . $form_data["day"] . "\nBirth Year: " . $form_data["year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nPolicy amount: " . $_POST["policyAmount"] . "\nYears?: " . $_POST["howManyYears"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
         $headers  = "From: " . $form_data['first_name'] . " "  . $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
@@ -97,7 +97,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the website's name and puts it in front of the subject
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
         // get the message from the form and add the IP address of the user below it
-        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nState: " . $_POST["states"] . "\nBirth Month: " . $form_data["birth_month"] . "\nBirth Day: " . $form_data["birth_day"] . "\nBirth Year: " . $form_data["birth_year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
+        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nState: " . $_POST["states"] . "\nBirth Month: " . $form_data["month"] . "\nBirth Day: " . $form_data["day"] . "\nBirth Year: " . $form_data["year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nPolicy amount: " . $_POST["policyAmount"] . "\nYears?: " . $_POST["howManyYears"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
         $headers  = "From: " . $form_data['first_name'] . " " . $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
@@ -327,7 +327,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			    </div>
 			    <div>
 			        <label for="cf_state">' . $label_state . '</label>
-			        <select name="state" id="cf_state">
+			        <select name="states" id="cf_state">
 						<option selected="selected"></option>';
 							foreach ($states as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -335,16 +335,16 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 					$email_form .= '</select>
 			    </div>
 			    <div>
-			        <label for="cf_month">' . $label_birth_month . '</label>
-			        <input type="text" name="month" id="cf_month" size="2" maxlength="4" value="MM"'. $form_data['birth_month'] . '" />
+			        <label for="cf_month">' . $label_month . '</label>
+			        <input type="text" name="month" id="cf_month" size="2" maxlength="2" value="MM"'. $form_data['month'] . '" />
 			    </div>
 			    <div>
-			        <label for="cf_day">' . $label_birth_day . '</label>
-			        <input type="text" name="day" id="cf_day" size="2" maxlength="4" value="DD"'. $form_data['birth_day'] . '" />
+			        <label for="cf_day">' . $label_day . '</label>
+			        <input type="text" name="day" id="cf_day" size="2" maxlength="2" value="DD"'. $form_data['day'] . '" />
 			    </div>
 			    <div>
-			        <label for="cf_year">' . $label_birth_year . '</label>
-			        <input type="text" name="year" id="cf_year" size="4" maxlength="4" value="YYYY"'. $form_data['birth_year'] . '" />
+			        <label for="cf_year">' . $label_year . '</label>
+			        <input type="text" name="year" id="cf_year" size="4" maxlength="2" value="YYYY"'. $form_data['year'] . '" />
 			    </div>
 		    </div>
 		    </div>
@@ -377,7 +377,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				</div>
 				<div>
 			        <label for="cf_weight">' . $label_weight . '</label>
-			        <input type="text" name=weight id="cf_weight" size="25" maxlength="50" value="lbs"'. $form_data['weight'] . '" />
+			        <input type="text" name="weight" id="cf_weight" size="25" maxlength="50" value="lbs"'. $form_data['weight'] . '" />
 			    </div>
 				<div>
 			        <label for="cf_tobacco">' . $label_tobacco . '</label>
@@ -392,7 +392,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 				<div>
 					<label for="cf_policy_amount">' . $label_policy_amount . '</label>
-				        <select name="policy_amount" id="cf_policy_amount">
+				        <select name="policyAmount" id="cf_policy_amount">
 							<option selected="selected"></option>';
 							foreach ($policyAmount as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -401,7 +401,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				</div>
 				<div>
 					<label for="cf_how_many_years">' . $label_how_many_years . '</label>
-				        <select name="how_many_years" id="cf_how_many_years">
+				        <select name="howManyYears" id="cf_how_many_years">
 							<option selected="selected"></option>';
 							foreach ($howManyYears as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
