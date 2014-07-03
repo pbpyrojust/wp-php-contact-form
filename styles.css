@@ -19,3 +19,8 @@
 	display: inline-block;
 }
 .grid2col .column .row div { display: inline-block; }
+.grid2col .column .row div input {
+	height: 50px; 
+	background: #fff url() top left no-repeat;
+	border: 1px solid #cbcbcb;
+}

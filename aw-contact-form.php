@@ -167,7 +167,7 @@ function statesList() {
 					'WY'=>"Wyoming");
 	return $states;
 }
-
+$states = statesList();
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
 $email_form = '<?php $states = statesList(); ?>
 <form class="aw-contact-form" method="post" action="' . get_permalink() . '">
@@ -179,15 +179,15 @@ $email_form = '<?php $states = statesList(); ?>
 			<div class="row">
 			    <div>
 			        <label for="cf_first_name">' . $label_first_name . '</label>
-			        <input type="text" name="first_name" id="cf_first_name" size="50" maxlength="50" value="' . $form_data['first_name'] . '" />
+			        <input type="text" name="first_name" id="cf_first_name" size="25" maxlength="50" value="' . $form_data['first_name'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_middle_name">' . $label_middle_name . '</label>
-			        <input type="text" name="middle_name" id="cf_middle_name" size="50" maxlength="50" value="' . $form_data['middle_name'] . '" />
+			        <input type="text" name="middle_name" id="cf_middle_name" size="25" maxlength="50" value="' . $form_data['middle_name'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_last_name">' . $label_last_name . '</label>
-			        <input type="text" name="last_name" id="cf_last_name" size="50" maxlength="50" value="' . $form_data['last_name'] . '" />
+			        <input type="text" name="last_name" id="cf_last_name" size="25" maxlength="50" value="' . $form_data['last_name'] . '" />
 			    </div>
 			    <div class="row">
 			    <div>
@@ -201,11 +201,11 @@ $email_form = '<?php $states = statesList(); ?>
 			    <div>
 			        <label for="cf_state">' . $label_state . '</label>
 			        <select name="state" id="cf_state">
-						<option selected="selected"></option>
-							<?php foreach($states as $key=>$value) { ?>
-							<option value="<?php echo $key; ?>"><?php $value; ?></option>
-							<?php } ?>
-					</select>
+						<option selected="selected"></option>';
+							foreach ($states as $key => $value) {
+							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
+							}
+					$email_form .= '</select>
 			    </div>
 			    <div>
 			        <label for="cf_month">' . $label_birth_month . '</label>
@@ -250,7 +250,7 @@ $email_form = '<?php $states = statesList(); ?>
 				</div>
 				<div>
 			        <label for="cf_weight">' . $label_weight . '</label>
-			        <input type="text" name=weight id="cf_weight" size="50" maxlength="50" value="' . $form_data['weight'] . '" />
+			        <input type="text" name=weight id="cf_weight" size="25" maxlength="50" value="' . $form_data['weight'] . '" />
 			    </div>
 				<div>
 			        <label for="cf_tobacco">' . $label_tobacco . '</label>
@@ -293,15 +293,15 @@ $email_form = '<?php $states = statesList(); ?>
 			<div class="row">
 				<div>
 					<label for="cf_email">' . $label_email . '</label>
-					<input type="text" name="email" id="cf_email" size="50" maxlength="50" value="' . $form_data['email'] . '" />
+					<input type="text" name="email" id="cf_email" size="25" maxlength="50" value="' . $form_data['email'] . '" />
 				</div>
 				<div>
 					<label for="cf_re_email">' . $label_re_email . '</label>
-					<input type="text" name="re_email" id="cf_re_email" size="50" maxlength="50" value="' . $form_data['re_email'] . '" />
+					<input type="text" name="re_email" id="cf_re_email" size="25" maxlength="50" value="' . $form_data['re_email'] . '" />
 				</div>
 				<div>
 					<label for="cf_phone">' . $label_phone . '</label>
-					<input type="text" name="phone" id="cf_phone" size="50" maxlength="50" value="' . $form_data['phone'] . '" />
+					<input type="text" name="phone" id="cf_phone" size="25" maxlength="50" value="' . $form_data['phone'] . '" />
 				</div>
 			</div>
 		</div>
@@ -310,7 +310,7 @@ $email_form = '<?php $states = statesList(); ?>
      <div>
         <input type="submit" value="' . $label_submit . '" name="send" id="cf_send" />
         <label for="cf_subject" style="visibility: hidden;">' . $subject . '</label>
-		<input type="hidden" name="subject" id="cf_subject" size="50" maxlength="50" value="' . $form_data['subject'] . '" />
+		<input type="hidden" name="subject" id="cf_subject" size="25" maxlength="50" value="' . $form_data['subject'] . '" />
     </div>
 </form>';
 
