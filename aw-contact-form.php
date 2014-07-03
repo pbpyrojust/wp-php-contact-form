@@ -2,7 +2,7 @@
 /*
 Plugin Name: AW Contact Form
 Plugin URI: http://anthroware.com
-Description: A simple contact form for simple needs. Usage: <code>[aw_contact email="your@email.address"]</code>
+Description: A simple contact form for simple needs. Usage: <code>[aw_contact email="your@email.address" subject="Subject You Want To Use"]</code>
 Version: 1.0
 Author: Justin Adams
 Author URI: http://justwhat.net
@@ -25,7 +25,7 @@ function aw_contact_form_sc( $atts ) {
     extract( shortcode_atts( array(
     // if you don't provide an e-mail address, the shortcode will pick the e-mail address of the admin:
     "email" => get_bloginfo( 'admin_email' ),
-    "subject" => "Term Price Quote Contact Form Inquiry",
+    "subject" => "",
     "label_first_name" => "First Name",
     "label_middle_name" => "Middle Name",
     "label_last_name" => "Last Name",
@@ -55,7 +55,7 @@ function aw_contact_form_sc( $atts ) {
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $error = false;
     // set the "required fields" to check
-    $required_fields = array( "first_name", "email" );
+    $required_fields = array( "first_name", "last_name", "email" );
  
     // this part fetches everything that has been POSTed, sanitizes them and lets us use them as $form_data['subject']
     foreach ( $_POST as $field => $value ) {
@@ -113,6 +113,13 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 if ( $result != "" ) {
     $info = '<div class="info">' . $result . '</div>';
 }
+
+function genderList() {
+	$gender = array('M'=>"Male",'F'=>"Female",);
+	return $gender;
+}
+$gender = genderList();
+
 // states array for dropdown
 function statesList() {
 	$states = array('AL'=>"Alabama",
@@ -169,6 +176,7 @@ function statesList() {
 	return $states;
 }
 $states = statesList();
+
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
 $email_form = '<?php $states = statesList(); ?>
 <form class="aw-contact-form" method="post" action="' . get_permalink() . '">
@@ -194,9 +202,11 @@ $email_form = '<?php $states = statesList(); ?>
 			    <div>
 			        <label for="cf_gender">' . $label_gender . '</label>
 			        <select name="gender" id="cf_gender">
-			        	<option selected="selected"></option>
-						<option value="male" value="' . $form_data['male'] . '">Male</option>
-						<option value="female" value="' . $form_data['female'] . '">Female</option>
+			        	<option selected="selected"></option>';
+							foreach ($gender as $key => $value) {
+							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
+							}
+					$email_form .= '</select>
 					</select>
 			    </div>
 			    <div>
