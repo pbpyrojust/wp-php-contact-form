@@ -5,10 +5,6 @@
 #cf_message { width: 90%; padding: 10px; }
 #cf_send { padding: 5px 10px; }
 
-.grid2col .column:first-of-type h2 { 
-	position: absolute;
-	top: 0;
-}
 .grid2col { 
 	width: 100%;
 	display: inline-flex;

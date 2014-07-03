@@ -25,7 +25,7 @@ function aw_contact_form_sc( $atts ) {
     extract( shortcode_atts( array(
     // if you don't provide an e-mail address, the shortcode will pick the e-mail address of the admin:
     "email" => get_bloginfo( 'admin_email' ),
-    "subject" => "",
+    "subject" => "Term Price Quote Contact Form Inquiry",
     "label_first_name" => "First Name",
     "label_middle_name" => "Middle Name",
     "label_last_name" => "Last Name",
@@ -81,7 +81,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
  
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        $email_message = "\n\n First Name: " $form_data['first_name'] . "\n\n IP: " . aw_contact_get_the_ip();
+        $email_message = "First Name: " . $form_data['first_name'] . "\nIP: " . aw_contact_get_the_ip();
         $headers  = "From: " . $form_data['name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
@@ -94,7 +94,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the website's name and puts it in front of the subject
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
         // get the message from the form and add the IP address of the user below it
-        $email_message = "\n\n First Name: " $form_data['first_name'] . "\n\n IP: " . aw_contact_get_the_ip();
+        $email_message = "First Name: " . $form_data['first_name'] . "\nIP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
         $headers  = "From: " . $form_data['first_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
@@ -178,8 +178,8 @@ $email_form = '<?php $states = statesList(); ?>
 		<div class="column">
 			<div class="row">
 			    <div>
-			        <label for="cf__first_name">' . $label_first_name . '</label>
-			        <input type="text" name="first_name" id="cf_name" size="50" maxlength="50" value="' . $form_data['first_name'] . '" />
+			        <label for="cf_first_name">' . $label_first_name . '</label>
+			        <input type="text" name="first_name" id="cf_first_name" size="50" maxlength="50" value="' . $form_data['first_name'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_middle_name">' . $label_middle_name . '</label>
@@ -309,6 +309,8 @@ $email_form = '<?php $states = statesList(); ?>
     
      <div>
         <input type="submit" value="' . $label_submit . '" name="send" id="cf_send" />
+        <label for="cf_subject" style="visibility: hidden;">' . $subject . '</label>
+		<input type="hidden" name="subject" id="cf_subject" size="50" maxlength="50" value="' . $form_data['subject'] . '" />
     </div>
 </form>';
 
