@@ -177,6 +177,7 @@ function statesList() {
 }
 $states = statesList();
 
+// feet array for dropdown
 function feetList() {
 	$feet = array('3'=>"3'",
   '4'=>"4'",
@@ -187,6 +188,7 @@ function feetList() {
 }
 $feet = feetList();
 
+// inches array for dropdown
 function inchesList() {
 	$inches = array('0'=>"0",
 	'1'=>"1",
@@ -205,6 +207,7 @@ function inchesList() {
 }
 $inches = inchesList();
 
+// tobacco array for dropdown
 function tobaccoList() {
 	$tobacco = array('Never'=>"Never Used",
 	'Now'=>"Now Using",
@@ -213,6 +216,7 @@ function tobaccoList() {
 }
 $tobacco = tobaccoList();
 
+// polocy amount array for dropdown
 function policyAmountList() {
 	$policyAmount = array('1'=>"$100,000",
 	'2'=>"$150,000",
@@ -272,10 +276,22 @@ function policyAmountList() {
 	'2'=>"$2,850,000",
 	'2'=>"$2,900,000",
 	'2'=>"$2,950,000",
-	'2'=>"$3,000,000")
-	return $tobacco;
+	'2'=>"$3,000,000");
+	return $policyAmount;
 }
-$tobacco = tobaccoList();
+$policyAmount = policyAmountList();
+
+// how many years? array for dropdown
+function howManyYearsList() {
+	$howManyYears = array('10'=>"10",
+		'15'=>"15",
+		'20'=>"20",
+		'25'=>"25",
+		'30'=>"30");
+		return $howManyYears;
+}
+$howManyYears = howManyYearsList();
+
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
 $email_form = '<form class="aw-contact-form" method="post" action="' . get_permalink() . '">
 	<div class="grid2col">
@@ -375,20 +391,20 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				<div>
 					<label for="cf_policy_amount">' . $label_policy_amount . '</label>
 				        <select name="policy_amount" id="cf_policy_amount">
-							<option selected="selected"></option>
-								<?php foreach($policy_amount as $key=>$value) { ?>
-								<option value="<?php echo $key; ?>"><?php $value; ?></option>
-								<?php } ?>
-						</select>
+							<option selected="selected">Feet</option>';
+							foreach ($policyAmount as $key => $value) {
+							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
+							}
+					$email_form .= '</select>
 				</div>
 				<div>
 					<label for="cf_how_many_years">' . $label_how_many_years . '</label>
 				        <select name="how_many_years" id="cf_how_many_years">
-							<option selected="selected"></option>
-								<?php foreach($how_many_years as $key=>$value) { ?>
-								<option value="<?php echo $key; ?>"><?php $value; ?></option>
-								<?php } ?>
-						</select>
+							<option selected="selected">Feet</option>';
+							foreach ($howManyYears as $key => $value) {
+							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
+							}
+					$email_form .= '</select>
 				</div>
 			</div>
 		</div>
