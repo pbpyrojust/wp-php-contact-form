@@ -19,7 +19,7 @@
 	display: inline-block;
 }
 .grid2col .column .row div { display: inline-block; }
-.grid2col .column .row div input {
+.grid2col .column .row div input, .grid2col .column .row div select {
 	height: 50px;
 	font-size: 20px; 
 	background: #fff url() top left no-repeat;
