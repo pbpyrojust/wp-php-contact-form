@@ -55,7 +55,7 @@ function aw_contact_form_sc( $atts ) {
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $error = false;
     // set the "required fields" to check
-    $required_fields = array( "first_name", "last_name", "email" );
+    $required_fields = array( "first_name", "last_name", "birth_month", "birth_day", "birth_year", "email", "phone" );
  
     // this part fetches everything that has been POSTed, sanitizes them and lets us use them as $form_data['subject']
     foreach ( $_POST as $field => $value ) {
@@ -82,8 +82,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
  
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        $email_message = "First Name: " . $form_data['first_name'] . "\nLast Name: " . $form_data['last_name'] . "\nIP: " . aw_contact_get_the_ip();
-        $headers  = "From: " . $form_data['first_name'] . " "  . $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
+        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nBirth Month: " . $form_data["birth_month"] . "\nBirth Day: " . $form_data["birth_day"] . "\nBirth Year: " . $form_data["birth_year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
+        $headers  = "From: " . $form_data['first_name'] . " , "  . $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         wp_mail( $email, $email_subject, $email_message, $headers );
@@ -95,9 +95,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // get the website's name and puts it in front of the subject
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
         // get the message from the form and add the IP address of the user below it
-         $email_message = "First Name: " . $form_data['first_name'] . "\nLast Name: " . $form_data['last_name'] . "\nIP: " . aw_contact_get_the_ip();
+        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $_POST["gender"] . "\nBirth Month: " . $form_data["birth_month"] . "\nBirth Day: " . $form_data["birth_day"] . "\nBirth Year: " . $form_data["birth_year"] . "\nHeight in Feet: " . $_POST["feet"] . "\nHeight in Inches: " . $_POST["inches"] . "\nWeight in LBS: " . $form_data["weight"] . "\nTobacco use: " . $_POST["tobacco"] . "\nEmail address: " . $form_data["email"] . "\nPhone Number: " . $form_data["phone"] . "\nIP: " . aw_contact_get_the_ip();
         // set the e-mail headers with the user's name, e-mail address and character encoding
-        $headers  = "From: " . $form_data['first_name'] . " " . $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
+        $headers  = "From: " . $form_data['first_name'] . " , " . $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         // send the e-mail with the shortcode attribute named 'email' and the POSTed data
@@ -222,61 +222,61 @@ function policyAmountList() {
 	'2'=>"$150,000",
 	'3'=>"$200,000",
 	'2'=>"$250,000",
-	'2'=>"$300,000",
-	'2'=>"$350,000",
-	'2'=>"$400,000",
-	'2'=>"$450,000",
-	'2'=>"$500,000",
-	'2'=>"$550,000",
-	'2'=>"$600,000",
-	'2'=>"$650,000",
-	'2'=>"$700,000",
-	'2'=>"$750,000",
-	'2'=>"$800,000",
-	'2'=>"$850,000",
-	'2'=>"$900,000",
-	'2'=>"$950,000",
-	'2'=>"$1,000,000",
-	'2'=>"$1,050,000",
-	'2'=>"$1,100,000",
-	'2'=>"$1,150,000",
-	'2'=>"$1,200,000",
-	'2'=>"$1,250,000",
-	'2'=>"$1,300,000",
-	'2'=>"$1,350,000",
-	'2'=>"$1,400,000",
-	'2'=>"$1,450,000",
-	'2'=>"$1,500,000",
-	'2'=>"$1,550,000",
-	'2'=>"$1,600,000",
-	'2'=>"$1,650,000",
-	'2'=>"$1,700,000",
-	'2'=>"$1,750,000",
-	'2'=>"$1,800,000",
-	'2'=>"$1,850,000",
-	'2'=>"$1,900,000",
-	'2'=>"$1,950,000",
-	'2'=>"$2,000,000",
-	'2'=>"$2,050,000",
-	'2'=>"$2,100,000",
-	'2'=>"$2,150,000",
-	'2'=>"$2,200,000",
-	'2'=>"$2,250,000",
-	'2'=>"$2,300,000",
-	'2'=>"$2,350,000",
-	'2'=>"$2,400,000",
-	'2'=>"$2,450,000",
-	'2'=>"$2,500,000",
-	'2'=>"$2,550,000",
-	'2'=>"$2,600,000",
-	'2'=>"$2,650,000",
-	'2'=>"$2,700,000",
-	'2'=>"$2,750,000",
-	'2'=>"$2,800,000",
-	'2'=>"$2,850,000",
-	'2'=>"$2,900,000",
-	'2'=>"$2,950,000",
-	'2'=>"$3,000,000");
+	'4'=>"$300,000",
+	'5'=>"$350,000",
+	'6'=>"$400,000",
+	'7'=>"$450,000",
+	'8'=>"$500,000",
+	'9'=>"$550,000",
+	'10'=>"$600,000",
+	'11'=>"$650,000",
+	'12'=>"$700,000",
+	'13'=>"$750,000",
+	'14'=>"$800,000",
+	'15'=>"$850,000",
+	'16'=>"$900,000",
+	'17'=>"$950,000",
+	'18'=>"$1,000,000",
+	'19'=>"$1,050,000",
+	'20'=>"$1,100,000",
+	'21'=>"$1,150,000",
+	'22'=>"$1,200,000",
+	'23'=>"$1,250,000",
+	'24'=>"$1,300,000",
+	'25'=>"$1,350,000",
+	'26'=>"$1,400,000",
+	'27'=>"$1,450,000",
+	'28'=>"$1,500,000",
+	'29'=>"$1,550,000",
+	'30'=>"$1,600,000",
+	'31'=>"$1,650,000",
+	'32'=>"$1,700,000",
+	'33'=>"$1,750,000",
+	'34'=>"$1,800,000",
+	'35'=>"$1,850,000",
+	'36'=>"$1,900,000",
+	'37'=>"$1,950,000",
+	'38'=>"$2,000,000",
+	'39'=>"$2,050,000",
+	'40'=>"$2,100,000",
+	'41'=>"$2,150,000",
+	'42'=>"$2,200,000",
+	'43'=>"$2,250,000",
+	'44'=>"$2,300,000",
+	'45'=>"$2,350,000",
+	'46'=>"$2,400,000",
+	'47'=>"$2,450,000",
+	'48'=>"$2,500,000",
+	'49'=>"$2,550,000",
+	'50'=>"$2,600,000",
+	'51'=>"$2,650,000",
+	'52'=>"$2,700,000",
+	'53'=>"$2,750,000",
+	'54'=>"$2,800,000",
+	'55'=>"$2,850,000",
+	'56'=>"$2,900,000",
+	'57'=>"$2,950,000",
+	'58'=>"$3,000,000");
 	return $policyAmount;
 }
 $policyAmount = policyAmountList();
