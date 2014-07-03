@@ -314,6 +314,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			        <label for="cf_last_name">' . $label_last_name . '</label>
 			        <input type="text" name="last_name" id="cf_last_name" size="26" maxlength="50" value="' . $form_data['last_name'] . '" />
 			    </div>
+			</div>
 				<div class="row">
 				    <div>
 				        <label for="cf_gender">' . $label_gender . '</label>
@@ -347,7 +348,6 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				        <input type="text" name="year" id="cf_year" size="8" maxlength="8" value="YYYY"'. $form_data['year'] . '" />
 				    </div>
 				</div>
-		    </div>
 		</div>
     </div>
     
@@ -377,7 +377,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				</div>
 				<div>
 			        <label for="cf_weight">' . $label_weight . '</label>
-			        <input type="text" name="weight" id="cf_weight" size="25" maxlength="50" value="lbs"'. $form_data['weight'] . '" />
+			        <input type="text" name="weight" id="cf_weight" size="26" maxlength="50" value="lbs"'. $form_data['weight'] . '" />
 			    </div>
 				<div>
 			        <label for="cf_tobacco">' . $label_tobacco . '</label>
