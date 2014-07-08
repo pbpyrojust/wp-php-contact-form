@@ -432,13 +432,16 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 					<p><strong>Note:</strong> We will not call you unless you have questions or want to move forward with life insurance.</p>
 				</div>
 			</div>
+			<div class="submitCheckBox">
+				<input type="checkbox"></input>
+				<p>I accept the Terms of Service and Privacy Policy.</p>
+			</div>
+			<div class="submitButton">
+				<input type="submit" value="' . $label_submit . '" name="send" id="cf_send" />
+				<label for="cf_subject" style="visibility: hidden;">' . $subject . '</label>
+				<input type="hidden" name="subject" id="cf_subject" size="25" maxlength="50" value="' . $form_data['subject'] . '" />
+			</div>
 		</div>
-    </div>
-    
-     <div>
-        <input type="submit" value="' . $label_submit . '" name="send" id="cf_send" />
-        <label for="cf_subject" style="visibility: hidden;">' . $subject . '</label>
-		<input type="hidden" name="subject" id="cf_subject" size="25" maxlength="50" value="' . $form_data['subject'] . '" />
     </div>
 </form>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
