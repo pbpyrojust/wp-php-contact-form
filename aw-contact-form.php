@@ -429,6 +429,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				<div>
 					<label for="cf_phone">' . $label_phone . '</label>
 					<input type="text" name="phone" id="cf_phone"  maxlength="50" value="' . $form_data['phone'] . '" />
+					<p><strong>Note:</strong> We will not call you unless you have questions or want to move forward with life insurance.</p>
 				</div>
 			</div>
 		</div>

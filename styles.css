@@ -74,5 +74,7 @@
 #cf_day { width: 58px; }
 #cf_year { width: 116px; }
 /* AW Validation Styles */
-.aw-contact-form input.error { border: 1px solid red !important; }
-.aw-contact-form input.valid { border: 1px solid green !important; }
+.aw-contact-form input.error { border: 1px solid #ff6463 !important; }
+.aw-contact-form input.valid { border: 1px solid #8ac348 !important; }
+.aw-contact-form label.error { display: none !important; }
+.aw-contact-form input.ignore { border: 1px solid #cbcbcb !important; }

@@ -21,7 +21,7 @@ $j(".aw-contact-form").validate({
     },
     weight: {
     	required: true,
-    	digits: true
+    	number: true
     },
     email: {
       required: true,
