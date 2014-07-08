@@ -304,21 +304,21 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 			    <div>
 			        <label for="cf_first_name">' . $label_first_name . '</label>
-			        <input type="text" name="first_name" id="cf_first_name" class="" maxlength="50" value="' . $form_data['first_name'] . '" />
+			        <input type="text" name="first_name" id="cf_first_name"  maxlength="50" value="' . $form_data['first_name'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_middle_name">' . $label_middle_name . '</label>
-			        <input type="text" name="middle_name" id="cf_middle_name" maxlength="50" value="' . $form_data['middle_name'] . '" />
+			        <input type="text" name="middle_name" id="cf_middle_name" class="ignore" maxlength="50" value="' . $form_data['middle_name'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_last_name">' . $label_last_name . '</label>
-			        <input type="text" name="last_name" id="cf_last_name" class="" maxlength="50" value="' . $form_data['last_name'] . '" />
+			        <input type="text" name="last_name" id="cf_last_name"  maxlength="50" value="' . $form_data['last_name'] . '" />
 			    </div>
 			</div>
 				<div class="row">
 				    <div>
 				        <label for="cf_gender">' . $label_gender . '</label>
-				        <select name="gender" id="cf_gender">
+				        <select name="gender" id="cf_gender" class="ignore">
 				        	<option selected="selected"></option>';
 								foreach ($gender as $key => $value) {
 								$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -328,7 +328,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				    </div>
 				    <div>
 				        <label for="cf_state">' . $label_state . '</label>
-				        <select name="states" id="cf_state">
+				        <select name="states" id="cf_state" class="ignore">
 							<option selected="selected"></option>';
 								foreach ($states as $key => $value) {
 								$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -359,7 +359,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 				<div>
 					<label for="cf_feet">' . $label_feet . '</label>
-				        <select name="feet" id="cf_feet">
+				        <select name="feet" id="cf_feet" class="ignore">
 							<option selected="selected">Feet</option>';
 							foreach ($feet as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -368,7 +368,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				</div>
 				<div>
 					<label for="cf_inches">' . $label_inches . '</label>
-			        <select name="inches" id="cf_inches">
+			        <select name="inches" id="cf_inches" class="ignore">
 						<option selected="selected">Inches</option>';
 							foreach ($inches as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -381,7 +381,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			    </div>
 				<div>
 			        <label for="cf_tobacco">' . $label_tobacco . '</label>
-			        <select name="tobacco" id="cf_tobacco">
+			        <select name="tobacco" id="cf_tobacco" class="ignore">
 						<option selected="selected"></option>';
 							foreach ($tobacco as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -392,7 +392,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 				<div>
 					<label for="cf_policy_amount">' . $label_policy_amount . '</label>
-				        <select name="policyAmount" id="cf_policy_amount">
+				        <select name="policyAmount" id="cf_policy_amount" class="ignore">
 							<option selected="selected"></option>';
 							foreach ($policyAmount as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -401,7 +401,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				</div>
 				<div>
 					<label for="cf_how_many_years">' . $label_how_many_years . '</label>
-				        <select name="howManyYears" id="cf_how_many_years">
+				        <select name="howManyYears" id="cf_how_many_years" class="ignore">
 							<option selected="selected"></option>';
 							foreach ($howManyYears as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
@@ -420,11 +420,11 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 				<div>
 					<label for="cf_email">' . $label_email . '</label>
-					<input type="text" name="email" id="cf_email" class="" maxlength="100" value="' . $form_data['email'] . '" />
+					<input type="text" name="email" id="cf_email" maxlength="100" value="' . $form_data['email'] . '" />
 				</div>
 				<div>
 					<label for="cf_re_email">' . $label_re_email . '</label>
-					<input type="text" name="re_email" id="cf_re_email" class="" maxlength="100" value="' . $form_data['re_email'] . '" />
+					<input type="text" name="re_email" id="cf_re_email" maxlength="100" value="' . $form_data['re_email'] . '" />
 				</div>
 				<div>
 					<label for="cf_phone">' . $label_phone . '</label>
