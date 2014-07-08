@@ -63,6 +63,10 @@
 .grid2col:first-of-type .row:last-of-type div:nth-of-type(3) { margin-right: -22px; }
 .grid2col:first-of-type .row:last-of-type div:nth-of-type(4) { margin-right: 16px; }
 .grid2col:nth-of-type(2) .row:first-of-type div:first-of-type { margin-right: -22px; }
+.grid2col:nth-of-type(3) .row:first-of-type {
+	display: inline-flex;
+	display: -webkit-inline-flex;
+}
 #cf_gender,
 #cf_state,
 #cf_tobacco,
@@ -78,3 +82,11 @@
 .aw-contact-form input.valid { border: 1px solid #8ac348 !important; }
 .aw-contact-form label.error { display: none !important; }
 .aw-contact-form input.ignore { border: 1px solid #cbcbcb !important; }
+.aw-contact-form .submitCheckBox {
+	float: left;
+	width: 276px;
+}
+.aw-contact-form .submitButton {
+	float: right;
+	width: 276px;
+}

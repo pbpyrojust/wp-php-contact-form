@@ -429,7 +429,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				<div>
 					<label for="cf_phone">' . $label_phone . '</label>
 					<input type="text" name="phone" id="cf_phone"  maxlength="50" value="' . $form_data['phone'] . '" />
-					<p><strong>Note:</strong> We will not call you unless you have questions or want to move forward with life insurance.</p>
+					<p class="phoneNote"><strong>Note:</strong> We will not call you unless you have questions or want to move forward with life insurance.</p>
 				</div>
 			</div>
 			<div class="submitCheckBox">
@@ -446,7 +446,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 </form>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
-<script src="/wp-content/plugins/aw-contact-form.php_/aw-validate.js"></script>';
+<script src="/wp-content/plugins/aw-contact-form.php_/js/aw-validate.js"></script>';
 
 if ( $sent == true ) {
     return $info;
