@@ -10,7 +10,7 @@ $j(".aw-contact-form").validate({
     birth_month: {
     	required: true,
     	digits: true
-    }.
+    },
     birth_day: {
     	required: true,
     	digits: true
@@ -33,6 +33,6 @@ $j(".aw-contact-form").validate({
     phone: {
     	required: true,
     	phoneUS: true
-    },
+    }
   }
 });
