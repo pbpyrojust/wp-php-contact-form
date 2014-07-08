@@ -38,6 +38,17 @@
 	font-size: 20px; 
 	background: #fff url() top left no-repeat;
 	border: 1px solid #cbcbcb;
+	-webkit-border-bottom-left-radius: 0 !important;
+	-webkit-border-bottom-right-radius: 0 !important;
+	-webkit-border-top-left-radius: 0 !important;
+	-webkit-border-top-right-radius: 0 !important;
+	-moz-border-radius: 0;
+	-o-border-radius: 0;
+	-ms-border-radius: 0;
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
 }
 .grid2col .row { margin-bottom: 8px !important; }
 .grid2col:first-of-type .row:first-of-type div:first-of-type,
@@ -62,3 +73,6 @@
 #cf_month,
 #cf_day { width: 58px; }
 #cf_year { width: 116px; }
+/* AW Validation Styles */
+.aw-contact-form input.error { border: 1px solid red !important; }
+.aw-contact-form input.valid { border: 1px solid green !important; }

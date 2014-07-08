@@ -2,7 +2,7 @@
 /*
 Plugin Name: AW Contact Form
 Plugin URI: http://anthroware.com
-Description: A simple contact form for simple needs. Usage: <code>[aw_contact email="your@email.address" subject="Subject You Want To Use"]</code>
+Description: A simple contact form for simple needs. Usage: <code>[aw_contact email="your@email.address"]</code>
 Version: 1.0
 Author: Justin Adams
 Author URI: http://justwhat.net
@@ -77,10 +77,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     }
  
     // and if the e-mail is not valid, switch $error to TRUE and set the result text to the shortcode attribute named 'error_noemail'
-    if ( ! is_email( $form_data['email'] ) ) {
-        $error = true;
-        $result = $error_noemail;
-    }
+    //if ( ! is_email( $form_data['email'] ) ) {
+    //    $error = true;
+    //    $result = $error_noemail;
+    //}
  
     if ( $error == false ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
@@ -304,7 +304,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 			    <div>
 			        <label for="cf_first_name">' . $label_first_name . '</label>
-			        <input type="text" name="first_name" id="cf_first_name" maxlength="50" value="' . $form_data['first_name'] . '" />
+			        <input type="text" name="first_name" id="cf_first_name" class="" maxlength="50" value="' . $form_data['first_name'] . '" />
 			    </div>
 			    <div>
 			        <label for="cf_middle_name">' . $label_middle_name . '</label>
@@ -312,7 +312,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			    </div>
 			    <div>
 			        <label for="cf_last_name">' . $label_last_name . '</label>
-			        <input type="text" name="last_name" id="cf_last_name" maxlength="50" value="' . $form_data['last_name'] . '" />
+			        <input type="text" name="last_name" id="cf_last_name" class="" maxlength="50" value="' . $form_data['last_name'] . '" />
 			    </div>
 			</div>
 				<div class="row">
@@ -420,11 +420,11 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 				<div>
 					<label for="cf_email">' . $label_email . '</label>
-					<input type="text" name="email" id="cf_email"  maxlength="50" value="' . $form_data['email'] . '" />
+					<input type="text" name="email" id="cf_email" class="" maxlength="100" value="' . $form_data['email'] . '" />
 				</div>
 				<div>
 					<label for="cf_re_email">' . $label_re_email . '</label>
-					<input type="text" name="re_email" id="cf_re_email"  maxlength="50" value="' . $form_data['re_email'] . '" />
+					<input type="text" name="re_email" id="cf_re_email" class="" maxlength="100" value="' . $form_data['re_email'] . '" />
 				</div>
 				<div>
 					<label for="cf_phone">' . $label_phone . '</label>
@@ -440,7 +440,9 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 		<input type="hidden" name="subject" id="cf_subject" size="25" maxlength="50" value="' . $form_data['subject'] . '" />
     </div>
 </form>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>';
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
+<script src="/wp-content/plugins/aw-contact-form.php_/aw-validate.js"></script>';
 
 if ( $sent == true ) {
     return $info;
