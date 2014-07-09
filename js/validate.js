@@ -6,7 +6,7 @@ $jQ(function() {
 	var cssNodeContact = document.createElement('link');
 	cssNodeContact.type = 'text/css';
 	cssNodeContact.rel = 'stylesheet';
-	cssNodeContact.href = '/wp-content/plugins/aw-contact-form/css/styles.css?version=1.5';
+	cssNodeContact.href = '/wp-content/plugins/aw-contact-form/css/styles.css?version=1.7';
 	cssNodeContact.media = 'screen';
 	headIDContact.appendChild(cssNodeContact);
 	

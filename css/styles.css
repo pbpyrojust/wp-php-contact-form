@@ -15,6 +15,7 @@
 	outline: 1px solid rgba(0, 0, 0, 1) !important;
 }
 #cf_message { width: 90%; padding: 10px; }
+/* Media query and properties for smaller screens */
 #cf_send { display: inline-block; }
 @media only screen and (max-width: 600px) {
 		.grid2col, 
@@ -26,6 +27,8 @@
 	width: 100%;
 	display: inline-flex;
 	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flex;
 	border-bottom: 1px solid #d2d2d2;
 }
 .grid2col:nth-of-type(3) { border-bottom: 0 !important; }
@@ -42,7 +45,11 @@
 	margin-top: 10px;
 	text-transform: none;
 }
-.grid2col .column .row div { display: inline-block; position: relative; }
+.grid2col .column .row div { 
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+}
 .grid2col .column .row div input, .grid2col .column .row div select {
 	height: 50px;
 	font-size: 20px; 
@@ -71,7 +78,8 @@
 .grid2col:nth-of-type(3) .row:first-of-type {
 	display: inline-flex;
 	display: -webkit-inline-flex;
-	display: flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flex;
 }
 #cf_gender,
 #cf_state,
@@ -111,6 +119,7 @@
 /* Phone note, check box and submit styles */
 .aw-contact-form .phoneNote { width: 276px; }
 .aw-contact-form .submitCheckBox { width: 276px; }
+/* Custom checkbox */
 .aw-contact-form input[type="checkbox"] {
 	display: none;
 }
@@ -161,4 +170,5 @@
 	font-size: 12pt;
 	color: #000;
 }
+/* Aligning the div for the submit button */
 .aw-contact-form .submitButton { text-align: center; }

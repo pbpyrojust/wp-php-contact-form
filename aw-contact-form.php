@@ -447,7 +447,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 </form>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
-<script src="/wp-content/plugins/aw-contact-form/js/validate.js?version=1.2"></script>';
+<script src="/wp-content/plugins/aw-contact-form/js/validate.js?version=1.4"></script>';
 
 if ( $sent == true ) {
     return $info;
