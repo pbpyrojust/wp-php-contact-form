@@ -138,6 +138,10 @@
 }
 .aw-contact-form select option {
 	border: 1px solid #cbcbcb;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
 }
 /* Phone note, check box and submit styles */
 .aw-contact-form .phoneNote { width: 276px; }
