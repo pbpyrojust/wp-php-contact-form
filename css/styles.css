@@ -17,10 +17,7 @@
 #cf_message { width: 90%; padding: 10px; }
 #cf_send { display: inline-block; }
 @media only screen and (max-width: 600px) {
-	.grid2col, 
-	.grid2col .column:first-of-type,
-	.grid2col:nth-of-type(3) .row:first-of-type { { display: block !important; }
-	.grid2col .column:first-of-type { width: 100%; }
+	.grid2col, .grid2col .column:first-of-type { display: block !important; }
 }
 .grid2col { 
 	width: 100%;
@@ -46,7 +43,7 @@
 .grid2col .column .row div input, .grid2col .column .row div select {
 	height: 50px;
 	font-size: 20px; 
-	background-color: #fff;
+	background: #fff url() top left no-repeat;
 	border: 1px solid #cbcbcb;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
@@ -84,27 +81,8 @@
 #cf_day { width: 58px; }
 #cf_year { width: 116px; }
 /* AW Validation Styles */
-.aw-contact-form input.error {
-	background-image: url('/wp-content/plugins/aw-contact-form.php_/img/error.jpg') !important;
-	background-position: 258px 16px;
-	background-size: 13px 13px;
-	background-repeat: no-repeat;
-	border: 1px solid #ff6463 !important;
-}
-#cf_month,
-#cf_day {
-	background-position: 40px 16px !important;
-}
-#cf_year {
-	background-position: 98px 16px !important;
-}
-.aw-contact-form input.valid {
-	background-image: url('/wp-content/plugins/aw-contact-form.php_/img/valid.jpg') !important;
-	background-position: 256px 16px;
-	background-size: 17px 13px;
-	background-repeat: no-repeat;
-	border: 1px solid #8ac348 !important;
-}
+.aw-contact-form input.error { border: 1px solid #ff6463 !important; }
+.aw-contact-form input.valid { border: 1px solid #8ac348 !important; }
 .aw-contact-form label.error { display: none !important; }
 .aw-contact-form input.ignore { border: 1px solid #cbcbcb !important; }
 .grid2col .column .row div input:after {
@@ -122,8 +100,8 @@
 	display: none;
 }
 .aw-contact-form input[type="checkbox"] + label {
-	background-color: #fff;
-	border: 1px solid #c1caca;
+	background-color: #FFF;
+	border: 1px solid #C1CACA;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
 	padding: 9px;
 	border-radius: 0;

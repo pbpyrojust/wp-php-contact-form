@@ -429,25 +429,25 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				<div>
 					<label for="cf_phone">' . $label_phone . '</label>
 					<input type="text" name="phone" id="cf_phone"  maxlength="50" value="' . $form_data['phone'] . '" />
-					<p class="phoneNote"><strong>Note:</strong> We will not call you unless you have questions or want to move forward with life insurance.</p>
+					<p><strong>Note:</strong> We will not call you unless you have questions or want to move forward with life insurance.</p>
 				</div>
 			</div>
 			<div class="submitCheckBox">
-				<input type="checkbox" id="tosCheck"></input>
-				<label for="tosCheck"></label>
+				<input type="checkbox"></input>
 				<p>I accept the Terms of Service and Privacy Policy.</p>
 			</div>
 			<div class="submitButton">
-				<input type="submit" value="' . $label_submit . '" name="send" id="cf_send" class="qbutton large center" />
+				<input type="submit" value="' . $label_submit . '" name="send" id="cf_send" />
 				<label for="cf_subject" style="visibility: hidden;">' . $subject . '</label>
 				<input type="hidden" name="subject" id="cf_subject" size="25" maxlength="50" value="' . $form_data['subject'] . '" />
 			</div>
 		</div>
     </div>
 </form>
+<script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
-<script src="/wp-content/plugins/aw-contact-form/js/validate.js"></script>';
+<script src="/wp-content/plugins/aw-contact-form.php_/js/aw-validate.js"></script>';
 
 if ( $sent == true ) {
     return $info;
