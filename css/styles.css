@@ -1,6 +1,7 @@
 /* AW Contact Form Custom Styles */
 .aw-contact-form label, .aw-contact-form input, .aw-contact-form textarea { display: block; margin: 10px 0; }
 .aw-contact-form label { font-size: larger; }
+/* Border animation for select and input */
 .aw-contact-form input[type="text"] {
 	padding: 5px;
 	width: 276px;
@@ -10,9 +11,16 @@
 	-o-transition: all 0.30s ease-in-out;
 	outline: none;
 }
+.aw-contact-form select {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+}
 .aw-contact-form input[type="text"]:focus,
 .aw-contact-form select:focus { 
-	outline: 1px solid rgba(0, 0, 0, 1) !important;
+	border: 1px solid rgba(0, 0, 0, 1) !important;
 }
 #cf_message { width: 90%; padding: 10px; }
 /* Media query and properties for smaller screens */
@@ -126,7 +134,10 @@
 	background-position: 258px 16px;
 	background-size: 13px 13px;
 	background-repeat: no-repeat;
-	border: 1px solid #ff6463 !important;
+	border: 1px solid #cbcbcb !important;
+}
+.aw-contact-form select option {
+	border: 1px solid #cbcbcb;
 }
 /* Phone note, check box and submit styles */
 .aw-contact-form .phoneNote { width: 276px; }

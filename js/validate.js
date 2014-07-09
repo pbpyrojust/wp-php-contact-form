@@ -6,7 +6,7 @@ $jQ(function() {
 	var cssNodeContact = document.createElement('link');
 	cssNodeContact.type = 'text/css';
 	cssNodeContact.rel = 'stylesheet';
-	cssNodeContact.href = '/wp-content/plugins/aw-contact-form/css/styles.css?version=1.8';
+	cssNodeContact.href = '/wp-content/plugins/aw-contact-form/css/styles.css?version=2.0';
 	cssNodeContact.media = 'screen';
 	headIDContact.appendChild(cssNodeContact);
 	
@@ -39,7 +39,9 @@ $jQ(".aw-contact-form").validate({
 	      email: true
 	    },
 	    re_email: {
-	      equalTo: "#cf_email"
+	      equalTo: "#cf_email",
+	      required: true,
+	      email: true
 	    },
 	    phone: {
 	    	required: true,
