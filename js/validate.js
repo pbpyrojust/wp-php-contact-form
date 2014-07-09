@@ -2,13 +2,13 @@ var $jQ = jQuery.noConflict();
 
 $jQ(function() {
 
-	var headID = document.getElementsByTagName("head")[0];         
-	var cssNode = document.createElement('link');
-	cssNode.type = 'text/css';
-	cssNode.rel = 'stylesheet';
-	cssNode.href = '/wp-content/plugins/aw-contact-form.php_/css/styles.css';
-	cssNode.media = 'screen';
-	headID.appendChild(cssNode);
+	var headIDContact = document.getElementsByTagName("head")[0];         
+	var cssNodeContact = document.createElement('link');
+	cssNodeContact.type = 'text/css';
+	cssNodeContact.rel = 'stylesheet';
+	cssNodeContact.href = '/wp-content/plugins/aw-contact-form/css/styles.css';
+	cssNodeContact.media = 'screen';
+	headIDContact.appendChild(cssNodeContact);
 	
 
 });
