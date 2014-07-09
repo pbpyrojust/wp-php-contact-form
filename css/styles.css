@@ -92,6 +92,7 @@
 #cf_day { width: 58px; }
 #cf_year { width: 116px; }
 /* AW Validation Styles */
+/* Background image styles for error and valid classes */
 .aw-contact-form input.error {
 	background-image: url('/wp-content/plugins/aw-contact-form/img/error.jpg') !important;
 	background-position: 258px 16px;
@@ -113,9 +114,20 @@
 	background-repeat: no-repeat;
 	border: 1px solid #8ac348 !important;
 }
-
 .aw-contact-form label.error { display: none !important; }
 .aw-contact-form input.ignore { border: 1px solid #cbcbcb !important; }
+/* Select styles */
+.aw-contact-form select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	background-image: url('/wp-content/plugins/aw-contact-form/img/down-arrow.jpg') !important;
+	background-position: 258px 16px;
+	background-size: 13px 13px;
+	background-repeat: no-repeat;
+	border: 1px solid #ff6463 !important;
+}
 /* Phone note, check box and submit styles */
 .aw-contact-form .phoneNote { width: 276px; }
 .aw-contact-form .submitCheckBox { width: 276px; }
