@@ -19,9 +19,8 @@
 @media only screen and (max-width: 600px) {
 		.grid2col, 
 		.grid2col .column:first-of-type,
-		.grid2col:nth-of-type(3) .row:first-of-type { { display: block !important; }
-		.grid2col .column:first-of-type { width: 100%; }
-	}
+		.grid2col:nth-of-type(3) .row:first-of-type { display: block !important; }
+		.grid2col .column:first-of-type { width: 100% !important;}
 }
 .grid2col { 
 	width: 100%;
@@ -86,7 +85,7 @@
 #cf_year { width: 116px; }
 /* AW Validation Styles */
 .aw-contact-form input.error {
-	background-image: url('/wp-content/plugins/aw-contact-form.php_/img/error.jpg') !important;
+	background-image: url('/wp-content/plugins/aw-contact-form/img/error.jpg') !important;
 	background-position: 258px 16px;
 	background-size: 13px 13px;
 	background-repeat: no-repeat;
@@ -100,7 +99,7 @@
 	background-position: 98px 16px !important;
 }
 .aw-contact-form input.valid {
-	background-image: url('/wp-content/plugins/aw-contact-form.php_/img/valid.jpg') !important;
+	background-image: url('/wp-content/plugins/aw-contact-form/img/valid.jpg') !important;
 	background-position: 256px 16px;
 	background-size: 17px 13px;
 	background-repeat: no-repeat;
@@ -109,14 +108,6 @@
 
 .aw-contact-form label.error { display: none !important; }
 .aw-contact-form input.ignore { border: 1px solid #cbcbcb !important; }
-.grid2col .column .row div input:after {
-	content: "*";
-    margin: 0 0 0 0.5em;
-    position: absolute;
-    top: 1px;
-    right: 1px;
-    color: #ff6463;
-}
 /* Phone note, check box and submit styles */
 .aw-contact-form .phoneNote { width: 276px; }
 .aw-contact-form .submitCheckBox { width: 276px; }
