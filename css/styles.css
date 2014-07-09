@@ -91,7 +91,7 @@
 #cf_month,
 #cf_day { width: 58px; }
 #cf_year { width: 116px; }
-/* AW Validation Styles */
+/* Validation Styles */
 /* Background image styles for error and valid classes */
 .aw-contact-form input.error {
 	background-image: url('/wp-content/plugins/aw-contact-form/img/error.jpg') !important;
