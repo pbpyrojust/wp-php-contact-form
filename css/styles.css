@@ -1,7 +1,7 @@
 /* AW Contact Form Custom Styles */
 .aw-contact-form label, .aw-contact-form input, .aw-contact-form textarea { display: block; margin: 10px 0; }
 .aw-contact-form label { font-size: larger; }
-.aw-contact-form input[type=text] { 
+.aw-contact-form input[type="text"] {
 	padding: 5px;
 	width: 276px;
 	-webkit-transition: all 0.30s ease-in-out;
@@ -10,7 +10,7 @@
 	-o-transition: all 0.30s ease-in-out;
 	outline: none;
 }
-.aw-contact-form input[type=text]:focus,
+.aw-contact-form input[type="text"]:focus,
 .aw-contact-form select:focus { 
 	outline: 1px solid rgba(0, 0, 0, 1) !important;
 }
@@ -39,7 +39,7 @@
 	margin-top: 10px;
 	text-transform: none;
 }
-.grid2col .column .row div { display: inline-block; }
+.grid2col .column .row div { display: inline-block; position: relative; }
 .grid2col .column .row div input, .grid2col .column .row div select {
 	height: 50px;
 	font-size: 20px; 
@@ -51,7 +51,7 @@
 	-ms-border-radius: 0;
 	border-radius: 0;
 }
-/* Select styles to override the browser ones */
+/* Using nth to target row divs */
 .grid2col .row { margin-bottom: 8px !important; }
 .grid2col:first-of-type .row:first-of-type div:first-of-type,
 .grid2col:first-of-type .row:first-of-type div:nth-of-type(2),
@@ -85,28 +85,62 @@
 .aw-contact-form input.valid { border: 1px solid #8ac348 !important; }
 .aw-contact-form label.error { display: none !important; }
 .aw-contact-form input.ignore { border: 1px solid #cbcbcb !important; }
-.aw-contact-form .error { position: relative; }
-.aw-contact-form .error:after {
+.grid2col .column .row div input:after {
 	content: "*";
     margin: 0 0 0 0.5em;
     position: absolute;
-    top: 0;
+    top: 1px;
     right: 1px;
-    color: #f00;
+    color: #ff6463;
 }
 /* Phone note, check box and submit styles */
 .aw-contact-form .phoneNote { width: 276px; }
 .aw-contact-form .submitCheckBox { width: 276px; }
-.aw-contact-form .submitCheckBox input { 
-	float: left;
+.aw-contact-form input[type="checkbox"] {
+	display: none;
+}
+.aw-contact-form input[type="checkbox"] + label {
+	background-color: #FFF;
+	border: 1px solid #C1CACA;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+	padding: 9px;
+	border-radius: 0;
+	display: inline-block;
+	position: relative;
 	margin-top: 5px;
-	margin-right: 10px;
+	margin-right: 15px;
+	float: left;
+	cursor: pointer;
 	width: 20px;
 	height: 20px;
-	border: 1px solid #cbcbcb;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+	font-size: 1.5em;
+}
+.aw-contact-form input[type="checkbox"] + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.aw-contact-form input[type="checkbox"]:checked + label {
+	background-color: #ECF2F7;
+	border: 1px solid #92A1AC;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+	color: #243441;
+}
+.aw-contact-form input[type="checkbox"]:checked + label:after {
+	font-family: FontAwesome;
+	content: '\f00c';
+	position: absolute;
+	top: -6px;
+	left: 0;
+	color: #8ac348;
+	width: 100%;
+	text-align: center;
+	font-size: 1.5em;
+	padding: 1px 0 0 0;
+	vertical-align: text-top;
+}
+.aw-contact-form input[type="checkbox"] + label:after {
+	top: 0;
+	left: 0;
+	padding: 17px 0 0 0;
 }
 .aw-contact-form .submitCheckBox p {
 	font-size: 12pt;

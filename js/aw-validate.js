@@ -1,4 +1,4 @@
-var $j = jQuery.noConflict();
+var $jQ = jQuery.noConflict();
 
 $jQ(function() {
 
@@ -47,3 +47,7 @@ $jQ(".aw-contact-form").validate({
 	    }
 	  }
 });
+
+if ($jQ("input").is(".error")) {
+    $jQ('input.error').parent().append('<i class="fa fa-times" style="position:absolute; width:50px; height:50px; top:10px; left 10px;"></i>');
+}

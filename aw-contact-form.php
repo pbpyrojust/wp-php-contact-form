@@ -433,7 +433,8 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				</div>
 			</div>
 			<div class="submitCheckBox">
-				<input type="checkbox"></input>
+				<input type="checkbox" id="tosCheck"></input>
+				<label for="tosCheck"></label>
 				<p>I accept the Terms of Service and Privacy Policy.</p>
 			</div>
 			<div class="submitButton">
