@@ -47,15 +47,3 @@ $jQ(".aw-contact-form").validate({
 	    }
 	  }
 });
-
-function boobs() {
-	if ($jQ("input").is(".error")) {
-	    $jQ('input.error:eq(0)').parent().append('<i class="fa fa-times" style="position:absolute; width:50px; height:50px; top:10px; left 10px;"></i>');
-	}
-};
-
-
-$jQ("#cf_send").click(function() {
-	console.log('clicked me')
-	boobs();
-});
