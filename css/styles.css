@@ -1,14 +1,21 @@
 /* AW Contact Form Custom Styles */
 .aw-contact-form label, .aw-contact-form input, .aw-contact-form textarea { display: block; margin: 10px 0; }
 .aw-contact-form label { font-size: larger; }
-.aw-contact-form input { 
+.aw-contact-form input[type=text] { 
 	padding: 5px;
 	width: 276px;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
 }
-.aw-contact-form input:active, .aw-contact-form input:hover { border: 1px solid #000; }
+.aw-contact-form input[type=text]:focus,
+.aw-contact-form select:focus { 
+	outline: 1px solid rgba(0, 0, 0, 1) !important;
+}
 #cf_message { width: 90%; padding: 10px; }
-#cf_send { padding: 5px 10px; }
-
+#cf_send { display: inline-block; }
 @media only screen and (max-width: 600px) {
 	.grid2col, .grid2col .column:first-of-type { display: block !important; }
 }
@@ -38,18 +45,13 @@
 	font-size: 20px; 
 	background: #fff url() top left no-repeat;
 	border: 1px solid #cbcbcb;
-	-webkit-border-bottom-left-radius: 0 !important;
-	-webkit-border-bottom-right-radius: 0 !important;
-	-webkit-border-top-left-radius: 0 !important;
-	-webkit-border-top-right-radius: 0 !important;
+	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	-o-border-radius: 0;
 	-ms-border-radius: 0;
-	border-bottom-left-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
-	border-top-left-radius: 0 !important;
-	border-top-right-radius: 0 !important;
+	border-radius: 0;
 }
+/* Select styles to override the browser ones */
 .grid2col .row { margin-bottom: 8px !important; }
 .grid2col:first-of-type .row:first-of-type div:first-of-type,
 .grid2col:first-of-type .row:first-of-type div:nth-of-type(2),
@@ -66,6 +68,7 @@
 .grid2col:nth-of-type(3) .row:first-of-type {
 	display: inline-flex;
 	display: -webkit-inline-flex;
+	display: flex;
 }
 #cf_gender,
 #cf_state,
@@ -82,11 +85,31 @@
 .aw-contact-form input.valid { border: 1px solid #8ac348 !important; }
 .aw-contact-form label.error { display: none !important; }
 .aw-contact-form input.ignore { border: 1px solid #cbcbcb !important; }
-.aw-contact-form .submitCheckBox {
+.aw-contact-form .error { position: relative; }
+.aw-contact-form .error:after {
+	content: "*";
+    margin: 0 0 0 0.5em;
+    position: absolute;
+    top: 0;
+    right: 1px;
+    color: #f00;
+}
+/* Phone note, check box and submit styles */
+.aw-contact-form .phoneNote { width: 276px; }
+.aw-contact-form .submitCheckBox { width: 276px; }
+.aw-contact-form .submitCheckBox input { 
 	float: left;
-	width: 276px;
+	margin-top: 5px;
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #cbcbcb;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
-.aw-contact-form .submitButton {
-	float: right;
-	width: 276px;
+.aw-contact-form .submitCheckBox p {
+	font-size: 12pt;
+	color: #000;
 }
+.aw-contact-form .submitButton { text-align: center; }

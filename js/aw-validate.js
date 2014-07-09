@@ -1,3 +1,5 @@
+var $j = jQuery.noConflict();
+
 $jQ(function() {
 
 	var headID = document.getElementsByTagName("head")[0];         
@@ -8,13 +10,6 @@ $jQ(function() {
 	cssNode.media = 'screen';
 	headID.appendChild(cssNode);
 	
-	var headIDUi = document.getElementsByTagName("head")[0];         
-	var cssNodeUi = document.createElement('link');
-	cssNodeUi.type = 'text/css';
-	cssNodeUi.rel = 'stylesheet';
-	cssNodeUi.href = '//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css';
-	cssNodeUi.media = 'screen';
-	headIDUi.appendChild(cssNodeUi);
 
 });
 
