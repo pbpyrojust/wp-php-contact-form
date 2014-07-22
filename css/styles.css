@@ -30,7 +30,7 @@
 	.grid2col, 
 	.grid2col .column:first-of-type,
 	.grid2col:nth-of-type(3) .row:first-of-type,
-	.grid2col .column:first-of-type { width: 100% !important;}
+	.grid2col .column:first-of-type { width: 100% !important; display: block !important;}
 }
 @media screen and (max-width: 1200px) {
 	.grid2col:first-of-type .row:last-of-type div:nth-of-type(2) { width: 58%; }	
