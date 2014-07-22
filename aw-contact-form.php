@@ -335,7 +335,6 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 								}
 						$email_form .= '</select>
 				    </div>
-				    <div id="birthBox">
 				    <div>
 				        <label for="cf_month">' . $label_month . '</label>
 				        <input type="text" name="birth_month" id="cf_month" maxlength="2" placeholder="MM"'. $form_data['birth_month'] . '" />
@@ -347,7 +346,6 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				    <div>
 				        <label for="cf_year">' . $label_year . '</label>
 				        <input type="text" name="birth_year" id="cf_year" maxlength="4" placeholder="YYYY"'. $form_data['birth_year'] . '" />
-				    </div>
 				    </div>
 				</div>
 		</div>

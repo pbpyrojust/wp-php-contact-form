@@ -26,12 +26,17 @@
 #cf_message { width: 90%; padding: 10px; }
 /* Media query and properties for smaller screens */
 #cf_send { display: inline-block; }
-@media only screen and (max-width: 600px) {
-		.grid2col, 
-		.grid2col .column:first-of-type,
-		.grid2col:nth-of-type(3) .row:first-of-type,
-		#birthBox { display: block !important; }
-		.grid2col .column:first-of-type { width: 100% !important;}
+@media screen and (max-width: 600px) {
+	.grid2col, 
+	.grid2col .column:first-of-type,
+	.grid2col:nth-of-type(3) .row:first-of-type,
+	.grid2col .column:first-of-type { width: 100% !important;}
+}
+@media screen and (max-width: 1200px) {
+	.grid2col:first-of-type .row:last-of-type div:nth-of-type(2) { width: 58%; }	
+}
+@media screen and (max-width: 1000px) {
+	.grid2col:first-of-type .row:last-of-type div:nth-of-type(2) { width: 100%; }	
 }
 .grid2col { 
 	width: 100%;
@@ -77,7 +82,7 @@
 	border-radius: 0;
 }
 /* Using nth to target row divs */
-.grid2col .row { margin-bottom: 8px !important; }
+.grid2col .row { margin-bottom: 16px !important; }
 .grid2col:first-of-type .row:first-of-type div:first-of-type,
 .grid2col:first-of-type .row:first-of-type div:nth-of-type(2),
 .grid2col:first-of-type .row:last-of-type div:first-of-type,
@@ -103,8 +108,8 @@
 #cf_how_many_years { width: 250px; }
 #cf_feet,
 #cf_inches { width: 110px; }
-select#cf_feet option[default],
-select#cf_inches option[default] {
+select#cf_feet,
+select#cf_inches{
    color: #cbcbcb;
    font-family: 'Open Sans', sans-serif;
    font-size: 16px;
@@ -119,21 +124,21 @@ select#cf_inches { background-position: 90px 16px; }
 /* Background image styles for error and valid classes */
 .aw-contact-form input.error {
 	background-image: url('/wp-content/plugins/aw-contact-form/img/error.jpg') !important;
-	background-position: 258px 16px;
+	background-position: 230px 16px;
 	background-size: 13px 13px;
 	background-repeat: no-repeat;
 	border: 1px solid #ff6463 !important;
 }
 #cf_month,
 #cf_day {
-	background-position: 40px 16px !important;
+	background-position: 38px 16px !important;
 }
 #cf_year {
-	background-position: 98px 16px !important;
+	background-position: 72px 16px !important;
 }
 .aw-contact-form input.valid {
 	background-image: url('/wp-content/plugins/aw-contact-form/img/valid.jpg') !important;
-	background-position: 256px 16px;
+	background-position: 230px 16px;
 	background-size: 17px 13px;
 	background-repeat: no-repeat;
 	border: 1px solid #8ac348 !important;
