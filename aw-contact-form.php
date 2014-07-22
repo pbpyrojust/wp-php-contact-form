@@ -335,17 +335,19 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 								}
 						$email_form .= '</select>
 				    </div>
+				    <div id="birthBox">
 				    <div>
 				        <label for="cf_month">' . $label_month . '</label>
-				        <input type="text" name="birth_month" id="cf_month" maxlength="2" value="MM"'. $form_data['birth_month'] . '" />
+				        <input type="text" name="birth_month" id="cf_month" maxlength="2" placeholder="MM"'. $form_data['birth_month'] . '" />
 				    </div>
 				    <div>
 				        <label for="cf_day">' . $label_day . '</label>
-				        <input type="text" name="birth_day" id="cf_day" maxlength="2" value="DD"'. $form_data['birth_day'] . '" />
+				        <input type="text" name="birth_day" id="cf_day" maxlength="2" placeholder="DD"'. $form_data['birth_day'] . '" />
 				    </div>
 				    <div>
 				        <label for="cf_year">' . $label_year . '</label>
-				        <input type="text" name="birth_year" id="cf_year" maxlength="4" value="YYYY"'. $form_data['birth_year'] . '" />
+				        <input type="text" name="birth_year" id="cf_year" maxlength="4" placeholder="YYYY"'. $form_data['birth_year'] . '" />
+				    </div>
 				    </div>
 				</div>
 		</div>
@@ -359,8 +361,8 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 			<div class="row">
 				<div>
 					<label for="cf_feet">' . $label_feet . '</label>
-				        <select name="feet" id="cf_feet" class="ignore">
-							<option selected="selected">Feet</option>';
+				        <select name="feet" id="cf_feet" class="ignore" placeholder="Feet">
+							<option value="" default selected>Feet</option>';
 							foreach ($feet as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
 							}
@@ -368,8 +370,8 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				</div>
 				<div>
 					<label for="cf_inches">' . $label_inches . '</label>
-			        <select name="inches" id="cf_inches" class="ignore">
-						<option selected="selected">Inches</option>';
+			        <select name="inches" id="cf_inches" class="ignore" placeholder="Inches">
+						<option value="" default selected>Inches</option>';
 							foreach ($inches as $key => $value) {
 							$email_form .= '<option value="' . $key . '">' . $value . '</option>';
 							}
@@ -377,7 +379,7 @@ $email_form = '<form class="aw-contact-form" method="post" action="' . get_perma
 				</div>
 				<div>
 			        <label for="cf_weight">' . $label_weight . '</label>
-			        <input type="text" name="weight" id="cf_weight" maxlength="50" value="lbs"'. $form_data['weight'] . '" />
+			        <input type="text" name="weight" id="cf_weight" maxlength="50" placeholder="lbs"'. $form_data['weight'] . '" />
 			    </div>
 				<div>
 			        <label for="cf_tobacco">' . $label_tobacco . '</label>

@@ -1,10 +1,11 @@
 /* AW Contact Form Custom Styles */
+.aw-contact-form { font-family: 'Open Sans', sans-serif; }
 .aw-contact-form label, .aw-contact-form input, .aw-contact-form textarea { display: block; margin: 10px 0; }
 .aw-contact-form label { font-size: larger; }
 /* Border animation for select and input */
 .aw-contact-form input[type="text"] {
 	padding: 5px;
-	width: 276px;
+	width: 250px;
 	-webkit-transition: all 0.30s ease-in-out;
 	-moz-transition: all 0.30s ease-in-out;
 	-ms-transition: all 0.30s ease-in-out;
@@ -28,7 +29,8 @@
 @media only screen and (max-width: 600px) {
 		.grid2col, 
 		.grid2col .column:first-of-type,
-		.grid2col:nth-of-type(3) .row:first-of-type { display: block !important; }
+		.grid2col:nth-of-type(3) .row:first-of-type,
+		#birthBox { display: block !important; }
 		.grid2col .column:first-of-type { width: 100% !important;}
 }
 .grid2col { 
@@ -39,6 +41,8 @@
 	display: -ms-inline-flex;
 	border-bottom: 1px solid #d2d2d2;
 }
+.grid2col:first-of-type,
+.grid2col:nth-of-type(2) { margin-bottom: 60px; }
 .grid2col:nth-of-type(3) { border-bottom: 0 !important; }
 .grid2col .column:first-of-type {
 	width: 19%;
@@ -51,6 +55,9 @@
 }
 .grid2col .column:first-of-type h2 {
 	margin-top: 10px;
+	font-size: 21px;
+	font-weight: 700;
+	font-style: italic;
 	text-transform: none;
 }
 .grid2col .column .row div { 
@@ -59,7 +66,7 @@
 	overflow: hidden;
 }
 .grid2col .column .row div input, .grid2col .column .row div select {
-	height: 50px;
+	height: 45px;
 	font-size: 20px; 
 	background-color: #fff;
 	border: 1px solid #cbcbcb;
@@ -93,12 +100,21 @@
 #cf_state,
 #cf_tobacco,
 #cf_policy_amount,
-#cf_how_many_years { width: 276px; }
+#cf_how_many_years { width: 250px; }
 #cf_feet,
-#cf_inches { width: 128px; }
+#cf_inches { width: 110px; }
+select#cf_feet option[default],
+select#cf_inches option[default] {
+   color: #cbcbcb;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+}
+select#cf_feet,
+select#cf_inches { background-position: 90px 16px; }
 #cf_month,
 #cf_day { width: 58px; }
-#cf_year { width: 116px; }
+#cf_year { width: 92px; }
 /* Validation Styles */
 /* Background image styles for error and valid classes */
 .aw-contact-form input.error {
@@ -131,7 +147,7 @@
 	-moz-appearance: none;
 	-ms-appearance: none;
 	background-image: url('/wp-content/plugins/aw-contact-form/img/down-arrow.jpg') !important;
-	background-position: 258px 16px;
+	background-position: 230px 16px;
 	background-size: 13px 13px;
 	background-repeat: no-repeat;
 	border: 1px solid #cbcbcb !important;
@@ -144,8 +160,11 @@
 	-ms-border-radius: 0;
 }
 /* Phone note, check box and submit styles */
-.aw-contact-form .phoneNote { width: 276px; }
-.aw-contact-form .submitCheckBox { width: 276px; }
+.aw-contact-form .phoneNote { 
+	width: 250px;
+	font-size: 12px;
+}
+.aw-contact-form .submitCheckBox { width: 250px; }
 /* Custom checkbox */
 .aw-contact-form input[type="checkbox"] {
 	display: none;
@@ -199,3 +218,31 @@
 }
 /* Aligning the div for the submit button */
 .aw-contact-form .submitButton { text-align: center; }
+/* Placeholder text */
+::-webkit-input-placeholder {
+   color: #cbcbcb;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #cbcbcb;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 16px;
+   font-weight: 300;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #cbcbcb;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 16px;
+   font-weight: 300;  
+}
+
+:-ms-input-placeholder {  
+   color: #cbcbcb;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 16px;
+   font-weight: 300;  
+}
