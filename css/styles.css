@@ -128,6 +128,7 @@ select#cf_inches {
 #cf_month,
 #cf_day { width: 55px; }
 #cf_year { width: 92px; }
+input#cf_year { padding-left: 25px; }
 /* Validation Styles */
 /* Background image styles for error and valid classes */
 .aw-contact-form input.error {
@@ -238,7 +239,7 @@ select#cf_inches {
 	padding: 17px 0 0 0;
 }
 .aw-contact-form .submitCheckBox p {
-	font-size: 12pt;
+	font-size: 14px;
 	color: #3d3d3d;
 }
 .aw-contact-form .submitCheckBox p a {
