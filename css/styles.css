@@ -60,9 +60,10 @@
 }
 .grid2col .column:first-of-type h2 {
 	margin-top: 10px;
-	font-size: 21px;
+	font-size: 17px;
 	font-weight: 700;
 	font-style: italic;
+	letter-spacing: 0;
 	text-transform: none;
 }
 .grid2col .column .row div { 
