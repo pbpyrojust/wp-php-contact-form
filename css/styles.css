@@ -1,11 +1,14 @@
 /* AW Contact Form Custom Styles */
 .aw-contact-form { font-family: 'Open Sans', sans-serif; }
 .aw-contact-form label, .aw-contact-form input, .aw-contact-form textarea { display: block; margin: 10px 0; }
-.aw-contact-form label { font-size: larger; }
+.aw-contact-form label { 
+	font-size: 16px;
+	letter-spacing: 0;
+}
 /* Border animation for select and input */
 .aw-contact-form input[type="text"] {
-	padding: 5px;
-	width: 250px;
+	padding: 10px;
+	width: 223px;
 	-webkit-transition: all 0.30s ease-in-out;
 	-moz-transition: all 0.30s ease-in-out;
 	-ms-transition: all 0.30s ease-in-out;
@@ -32,8 +35,8 @@
 	.grid2col:nth-of-type(3) .row:first-of-type,
 	.grid2col .column:first-of-type { width: 100% !important; display: block !important;}
 }
-@media screen and (max-width: 1200px) {
-	.grid2col:first-of-type .row:last-of-type div:nth-of-type(2) { width: 58%; }	
+@media screen and (max-width: 1201px) {
+	.grid2col:first-of-type .row:last-of-type div:nth-of-type(2) { width: 62%; }	
 }
 @media screen and (max-width: 1000px) {
 	.grid2col:first-of-type .row:last-of-type div:nth-of-type(2) { width: 100%; }	
@@ -50,12 +53,12 @@
 .grid2col:nth-of-type(2) { margin-bottom: 60px; }
 .grid2col:nth-of-type(3) { border-bottom: 0 !important; }
 .grid2col .column:first-of-type {
-	width: 19%;
+	width: 10%;
 	display: inline-block;
 }
 .grid2col .column:last-of-type {
 	padding-left: 15px;
-	width: 81%;
+	width: 89%;
 	display: inline-block;
 }
 .grid2col .column:first-of-type h2 {
@@ -83,7 +86,8 @@
 	border-radius: 0;
 }
 /* Using nth to target row divs */
-.grid2col .row { margin-bottom: 16px !important; }
+.grid2col .row:first-of-type { margin-bottom: 29px !important; }
+.grid2col .row:nth-of-type(2) { margin-bottom: 13px !important; }
 .grid2col:first-of-type .row:first-of-type div:first-of-type,
 .grid2col:first-of-type .row:first-of-type div:nth-of-type(2),
 .grid2col:first-of-type .row:last-of-type div:first-of-type,
@@ -92,10 +96,10 @@
 .grid2col:nth-of-type(2) .row:first-of-type div:nth-of-type(3),
 .grid2col:nth-of-type(2) .row:last-of-type div:first-of-type,
 .grid2col:nth-of-type(3) .row:first-of-type div:first-of-type,
-.grid2col:nth-of-type(3) .row:first-of-type div:nth-of-type(2) { margin-right: 20px; }
-.grid2col:first-of-type .row:last-of-type div:nth-of-type(3) { margin-right: -22px; }
-.grid2col:first-of-type .row:last-of-type div:nth-of-type(4) { margin-right: 16px; }
-.grid2col:nth-of-type(2) .row:first-of-type div:first-of-type { margin-right: -22px; }
+.grid2col:nth-of-type(3) .row:first-of-type div:nth-of-type(2) { margin-right: 15px; }
+.grid2col:first-of-type .row:last-of-type div:nth-of-type(3) { margin-right: -35px; }
+.grid2col:first-of-type .row:last-of-type div:nth-of-type(4) { margin-right: 5px; }
+.grid2col:nth-of-type(2) .row:first-of-type div:first-of-type { margin-right: -44px; }
 .grid2col:nth-of-type(3) .row:first-of-type {
 	display: inline-flex;
 	display: -webkit-inline-flex;
@@ -106,9 +110,9 @@
 #cf_state,
 #cf_tobacco,
 #cf_policy_amount,
-#cf_how_many_years { width: 250px; }
+#cf_how_many_years { width: 223px; }
 #cf_feet,
-#cf_inches { width: 110px; }
+#cf_inches { width: 105px; }
 select#cf_feet,
 select#cf_inches{
    color: #cbcbcb;
@@ -117,15 +121,18 @@ select#cf_inches{
    font-weight: 300;
 }
 select#cf_feet,
-select#cf_inches { background-position: 90px 16px; }
+select#cf_inches {
+	padding: 10px;
+	background-position: 86px 16px;
+}
 #cf_month,
-#cf_day { width: 58px; }
+#cf_day { width: 55px; }
 #cf_year { width: 92px; }
 /* Validation Styles */
 /* Background image styles for error and valid classes */
 .aw-contact-form input.error {
 	background-image: url('/wp-content/plugins/aw-contact-form/img/error.jpg') !important;
-	background-position: 230px 16px;
+	background-position: 204px 16px;
 	background-size: 13px 13px;
 	background-repeat: no-repeat;
 	border: 1px solid #ff6463 !important;
@@ -139,7 +146,7 @@ select#cf_inches { background-position: 90px 16px; }
 }
 .aw-contact-form input.valid {
 	background-image: url('/wp-content/plugins/aw-contact-form/img/valid.jpg') !important;
-	background-position: 230px 16px;
+	background-position: 204px 16px;
 	background-size: 17px 13px;
 	background-repeat: no-repeat;
 	border: 1px solid #8ac348 !important;
@@ -153,8 +160,8 @@ select#cf_inches { background-position: 90px 16px; }
 	-moz-appearance: none;
 	-ms-appearance: none;
 	background-image: url('/wp-content/plugins/aw-contact-form/img/down-arrow.jpg') !important;
-	background-position: 230px 16px;
-	background-size: 13px 13px;
+	background-position: 204px 16px;
+	background-size: 12px 7px;
 	background-repeat: no-repeat;
 	border: 1px solid #cbcbcb !important;
 }
@@ -167,10 +174,22 @@ select#cf_inches { background-position: 90px 16px; }
 }
 /* Phone note, check box and submit styles */
 .aw-contact-form .phoneNote { 
-	width: 250px;
-	font-size: 12px;
+	width: 223px;
+	font-size: 10px;
+	line-height: 13px;
 }
-.aw-contact-form .submitCheckBox { width: 250px; }
+.aw-contact-form .submitCheckBox { 
+	top: -5px;
+	left: 160px;
+	position: absolute;
+	display: inline-block;
+	width: 250px;
+}
+@media screen and (max-width: 480px) {
+	.aw-contact-form .submitCheckBox { 
+		left: 130px;
+	}	
+}
 /* Custom checkbox */
 .aw-contact-form input[type="checkbox"] {
 	display: none;
@@ -195,7 +214,7 @@ select#cf_inches { background-position: 90px 16px; }
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 }
 .aw-contact-form input[type="checkbox"]:checked + label {
-	background-color: #ECF2F7;
+	background-color: #fff;
 	border: 1px solid #92A1AC;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
 	color: #243441;
@@ -204,12 +223,12 @@ select#cf_inches { background-position: 90px 16px; }
 	font-family: FontAwesome;
 	content: '\f00c';
 	position: absolute;
-	top: -6px;
-	left: 0;
-	color: #8ac348;
+	top: -4px;
+	left: -2px;
+	color: #000;
 	width: 100%;
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 22px;
 	padding: 1px 0 0 0;
 	vertical-align: text-top;
 }
@@ -220,10 +239,20 @@ select#cf_inches { background-position: 90px 16px; }
 }
 .aw-contact-form .submitCheckBox p {
 	font-size: 12pt;
-	color: #000;
+	color: #3d3d3d;
+}
+.aw-contact-form .submitCheckBox p a {
+	font-size: 12pt;
+	color: #559cdd;
+	text-decoration: none;
 }
 /* Aligning the div for the submit button */
-.aw-contact-form .submitButton { text-align: center; }
+.footerItems { 
+	width: 100%;
+	position: relative;
+}
+.aw-contact-form .submitButton { display: inline-block; }
+.aw-contact-form .submitButton input { margin: 0 !important; }
 /* Placeholder text */
 ::-webkit-input-placeholder {
    color: #cbcbcb;
