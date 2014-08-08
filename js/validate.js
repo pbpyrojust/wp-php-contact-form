@@ -1,6 +1,6 @@
-var $j = jQuery.noConflict();
+var $ja = jQuery.noConflict();
 
-$j(function() {
+$ja(document).ready(function() {
 
 	var headIDContact = document.getElementsByTagName("head")[0];         
 	var cssNodeContact = document.createElement('link');
@@ -10,7 +10,7 @@ $j(function() {
 	cssNodeContact.media = 'screen';
 	headIDContact.appendChild(cssNodeContact);
 
-	$j(".aw-contact-form").validate({
+	$ja(".aw-contact-form").validate({
 		  rules: {
 		  	ignore: ".ignore",
 		    first_name: "required",
@@ -46,4 +46,5 @@ $j(function() {
 		    }
 		  }
 	});
+	
 });

@@ -295,8 +295,9 @@ function howManyYearsList() {
 $howManyYears = howManyYearsList();
 
 // anyways, let's build the form! (remember that we're using shortcode attributes as variables with their names)
-$email_form = '<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
+$email_form = '<script src="/wp-content/plugins/aw-contact-form/js/jquery.validate.min.js"></script>
+<script src="/wp-content/plugins/aw-contact-form/js/additional-methods.min.js"></script>
+
 <form class="aw-contact-form" method="post" action="' . get_permalink() . '">
 	<div class="grid2col">
 		<div class="column">
@@ -443,7 +444,7 @@ $email_form = '<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.
 				<div class="submitCheckBox">
 					<input type="checkbox" id="tosCheck">
 					<label for="tosCheck"></label>
-					<p>I accept the <a href="" target="">Terms of Service</a> and <a href="" target="">Privacy Policy</a>.</p>
+					<p>I accept the <a href="/terms-of-service/" target="">Terms of Service</a> and <a href="/privacy-policy/" target="">Privacy Policy</a>.</p>
 				</div>
 			</div>
 		</div>
