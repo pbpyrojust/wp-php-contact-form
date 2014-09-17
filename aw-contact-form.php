@@ -45,6 +45,9 @@ function aw_contact_form_sc( $atts ) {
     "label_subject" => "Subject",
     "label_message" => "Your Message",
     "label_submit" => "Submit",
+    "tp_first" => "Term Price",
+    "tp_last" => "Quote",
+    "tp_email" => "contact@terminpricequote.com",
     // the error message when at least one of the required fields are empty:
     "error_empty" => "Please fill in all the required fields.",
     // the error message when the e-mail address is not valid:
@@ -90,25 +93,92 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
         wp_mail( $email, $email_subject, $email_message, $headers );
-        $result = $success;
         $sent = true;
     }
-    // but if $error is still FALSE, put together the POSTed variables and send the e-mail!
-    if ( $error == false ) {
-        // get the website's name and puts it in front of the subject
+    if ( $sent == true ) {
         $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        // get the message from the form and add the IP address of the user below it
-        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $form_data['gender'] . "\nState: " . $form_data['states'] . "\nBirth Month: " . $form_data['birth_month'] . "\nBirth Day: " . $form_data['birth_day'] . "\nBirth Year: " . $form_data['birth_year'] . "\nHeight in Feet: " . $_POST['feet'] . "\nHeight in Inches: " . $_POST['inches'] . "\nWeight in LBS: " . $form_data['weight'] . "\nTobacco use: " . $_POST['tobacco'] . "\nPolicy amount: " . $_POST['policyAmount'] . "\nYears?: " . $_POST['howManyYears'] . "\nEmail address: " . $form_data['email'] . "\nPhone Number: " . $form_data['phone'] . "\nIP: " . aw_contact_get_the_ip();
-        // set the e-mail headers with the user's name, e-mail address and character encoding
-        $headers  = "From: " . $form_data['first_name'] . " , " . $form_data['last_name']  . " <" . $form_data['email'] . ">\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\n";
+        $email_message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>request varification</title>
+<style type="text/css">
+.tpq {
+	color: #FFF;
+	font-family: "Open Sans";
+	font-size: 24px;
+	font-weight: bolder;
+}
+.regular {
+	font-family: "Open Sans";
+	font-size: 14px;
+	font-weight: normal;
+	color: #666;
+	white-space: normal;
+	line-height: 28px;
+}
+.legal {
+	font-family: "Open Sans";
+	font-size: 10px;
+	font-weight: normal;
+	color: #999;
+}
+.firstline {
+	font-size: 18px;
+	font-family: "Open Sans";
+	font-weight: bold;
+	color: #333;
+}
+.line {
+	color: #CCC;
+	line-height: normal;
+}
+hr.style-three {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+	 margin-top:5px;
+    margin-bottom:50px;
+}
+</style>
+</head>
+
+<body>
+<table width="640" border="0" align="center" cellpadding="20" cellspacing="0">
+  <tr align="center">
+    <td class="tpq"><img src="http://tpq.reapcrtv.com/wp-content/uploads/2014/08/tpq_fullColor.png" width="343" height="48" /></td>
+  </tr>
+  <tr align="center">
+    <td><h2 class="firstline">Thank you for choosing TermPriceQuote!</h2></td>
+  </tr>
+  <tr align="center">
+    <td align="left"><p class="regular">Hi '. $form_data['first_name']. ',</p>
+      <p class="regular">Thank you for choosing TermPriceQuote™ Life Made Easy!</p>
+      <p class="regular">Your personalized life insurance quotes are being researched from highly rated term life insurance carriers. You will receive your video quote within the next 24 hours.</p>
+      <ul>
+        <li class="regular">Shop the leading insurance carriers</li>
+        <li class="regular">Compare your best options.</li>
+        <li class="regular">Save time and money.</li>
+      </ul>
+      <p class="regular">If you have any questions in the meantime, please don''t hesitate to call me.<br />
+1-866-573-0001</p>
+      <p class="regular">Thanks so much, <br />
+    Michael D. Lopez, CRIS, LUTCF</p></td>
+  </tr>
+  <tr align="center">
+    <td><hr class="style-three"/>
+      <p class="legal">Powered by Vbop™<br />
+      Copyright 2014 Vbop, All rights reserved<br />
+    California License # 0690603</p></td>
+  </tr>
+</table>
+</body>
+</html>';
+        $headers  = "From: " . $tp_first . " , " . $tp_last . " <" . $tp_email . ">\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
-        // send the e-mail with the shortcode attribute named 'email' and the POSTed data
-        wp_mail( $email, $email_subject, $email_message, $headers );
-        // and set the result text to the shortcode attribute named 'success'
+        wp_mail( $form_data['email'], $email_subject, $email_message, $headers );
         $result = $success;
-        // ...and switch the $sent variable to TRUE
-        $sent = true;
     }
 }
 
