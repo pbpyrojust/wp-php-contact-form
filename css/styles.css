@@ -262,19 +262,6 @@
    font-weight: 300;
 }
 
-.aw-contact-form #successMessage {
-	text-align: center;
-}
-
-.aw-contact-form #successMessage strong {
-	font-size: 30px;
-}
-
-.aw-contact-form #successMessage p,
-.aw-contact-form #successMessage p strong {
-	font-size: 22px;
-}
-
 :-moz-placeholder { /* Firefox 18- */
    color: #cbcbcb;
    font-family: 'Open Sans', sans-serif;
