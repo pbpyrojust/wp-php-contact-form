@@ -50,7 +50,8 @@ function aw_contact_form_sc( $atts ) {
     // the error message when the e-mail address is not valid:
     "error_noemail" => "Please enter a valid e-mail address.",
     // and the success message when the e-mail is sent:
-    "success" => "Thanks for your e-mail! We'll get back to you as soon as we can."
+    "success" => '<div id="successMessage"><img src="/wp-content/plugins/aw-contact-form/img/icon-thumbs-up.png" alt="Thumbs Up Icon"><strong>REQUEST SUBMITTED</strong><p>THANK YOU FOR CHOOSING <strong>TERMPRICEQUOTE.COM…</strong> <i>LIFE MADE EASY</i>™
+WE ARE RESEARCHING THE BEST RATES FOR YOU AND YOU WILL RECEIVE YOUR VIDEO QUOTE WITHIN THE NEXT 24 HOURS.</p></div>'
 ), $atts ) );
 
 // if the <form> element is POSTed, run the following code
@@ -442,9 +443,6 @@ $email_form = '<script src="/wp-content/plugins/aw-contact-form/js/jquery.valida
 					<input type="hidden" name="subject" id="cf_subject" size="25" maxlength="50" value="' . $form_data['subject'] . '" />
 				</div>
 				<div class="submitCheckBox">
-					<input type="checkbox" id="tosCheck">
-					<label for="tosCheck"></label>
-					<p>I accept the <a href="/terms-of-service/" target="">Terms of Service</a> and <a href="/privacy-policy/" target="">Privacy Policy</a>.</p>
 				</div>
 			</div>
 		</div>
