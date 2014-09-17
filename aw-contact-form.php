@@ -50,7 +50,7 @@ function aw_contact_form_sc( $atts ) {
     // the error message when the e-mail address is not valid:
     "error_noemail" => "Please enter a valid e-mail address.",
     // and the success message when the e-mail is sent:
-    "success" => '<style>.aw-contact-form #successMessage { margin: 0 auto; width: 672px; text-align: center; } .aw-contact-form #successMessage strong { display: block; font-size: 30px; } .aw-contact-form #successMessage p, .aw-contact-form #successMessage p strong { font-size: 22px; }</style> <div><img src="/wp-content/plugins/aw-contact-form/img/icon-thumbs-up.png" alt="Thumbs Up Icon"><strong>REQUEST SUBMITTED</strong><p>THANK YOU FOR CHOOSING <strong>TERMPRICEQUOTE.COM…</strong> <i>LIFE MADE EASY</i>™
+    "success" => '<style>#successMessage { margin: 0 auto; width: 672px; text-align: center; color: #414141; } #successMessage img { margin-top: 60px; margin-bottom: 34px; } #successMessage strong { display: block; font-size: 25px; } #successMessage p { margin-top: 42px; margin-bottom: 60px; } #successMessage p, #successMessage p strong { font-size: 17px; } #successMessage p strong { display: inline; }</style> <div id="successMessage"><img src="/wp-content/plugins/aw-contact-form/img/icon-thumbs-up.png" alt="Thumbs Up Icon"><strong>REQUEST SUBMITTED</strong><p>THANK YOU FOR CHOOSING <strong>TERMPRICEQUOTE.COM…</strong> <i>LIFE MADE EASY</i>™
 WE ARE RESEARCHING THE BEST RATES FOR YOU AND YOU WILL RECEIVE YOUR VIDEO QUOTE WITHIN THE NEXT 24 HOURS.</p></div>'
 ), $atts ) );
 
@@ -114,7 +114,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 // if there's no $result text (meaning there's no error or success, meaning the user just opened the page and did nothing) there's no need to show the $info variable
 if ( $result != "" ) {
-    $info = '<div id="successMessage">' . $result . '</div>';
+    $info = '<div>' . $result . '</div>';
 }
 
 function genderList() {
