@@ -160,7 +160,7 @@ hr.style-three {
         <li class="regular">Compare your best options.</li>
         <li class="regular">Save time and money.</li>
       </ul>
-      <p class="regular">If you have any questions in the meantime, please don''t hesitate to call me.<br />
+      <p class="regular">If you have any questions in the meantime, please do not hesitate to call me.<br />
 1-866-573-0001</p>
       <p class="regular">Thanks so much, <br />
     Michael D. Lopez, CRIS, LUTCF</p></td>
