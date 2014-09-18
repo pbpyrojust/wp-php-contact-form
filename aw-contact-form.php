@@ -48,6 +48,7 @@ function aw_contact_form_sc( $atts ) {
     "tp_first" => "Term Price",
     "tp_last" => "Quote",
     "tp_email" => "contact@terminpricequote.com",
+    "tp_subject" => "Your video life quote request has been received",
     // the error message when at least one of the required fields are empty:
     "error_empty" => "Please fill in all the required fields.",
     // the error message when the e-mail address is not valid:
@@ -96,7 +97,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $sent = true;
     }
     if ( $sent == true ) {
-        $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
+        $email_subject = "Your video life quote request has been received";
         $email_message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -104,7 +105,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 <title>request varification</title>
 <style type="text/css">
 .tpq {
-	color: #FFF;
+	color: #FFFFFF;
 	font-family: "Open Sans";
 	font-size: 24px;
 	font-weight: bolder;
@@ -113,7 +114,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	font-family: "Open Sans";
 	font-size: 14px;
 	font-weight: normal;
-	color: #666;
+	color: #666666;
 	white-space: normal;
 	line-height: 28px;
 }
@@ -121,7 +122,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	font-family: "Open Sans";
 	font-size: 10px;
 	font-weight: normal;
-	color: #999;
+	color: #999999;
 }
 .firstline {
 	font-size: 18px;
@@ -130,19 +131,18 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	color: #333;
 }
 .line {
-	color: #CCC;
+	color: #CCCCCC;
 	line-height: normal;
 }
 hr.style-three {
     border: 0;
-    border-bottom: 1px dashed #ccc;
-    background: #999;
+    border-bottom: 1px dashed #CCCCCC;
+    background: #999999;
 	 margin-top:5px;
     margin-bottom:50px;
 }
 </style>
 </head>
-
 <body>
 <table width="640" border="0" align="center" cellpadding="20" cellspacing="0">
   <tr align="center">
