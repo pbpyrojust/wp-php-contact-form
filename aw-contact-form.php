@@ -25,7 +25,6 @@ function aw_contact_form_sc( $atts ) {
     extract( shortcode_atts( array(
     // if you don't provide an e-mail address, the shortcode will pick the e-mail address of the admin:
     "email" => get_bloginfo( 'admin_email' ),
-    "subject" => "Subject",
     "label_first_name" => "First Name",
     "label_middle_name" => "Middle Name",
     "label_last_name" => "Last Name",
@@ -88,17 +87,18 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     //}
  
     if ( $error == false ) {
-        $email_subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
-        $email_message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $form_data['gender'] . "\nState: " . $form_data['states'] . "\nBirth Month: " . $form_data['birth_month'] . "\nBirth Day: " . $form_data['birth_day'] . "\nBirth Year: " . $form_data['birth_year'] . "\nHeight in Feet: " . $_POST['feet'] . "\nHeight in Inches: " . $_POST['inches'] . "\nWeight in LBS: " . $form_data['weight'] . "\nTobacco use: " . $_POST['tobacco'] . "\nPolicy amount: " . $_POST['policyAmount'] . "\nYears?: " . $_POST['howManyYears'] . "\nEmail address: " . $form_data['email'] . "\nPhone Number: " . $form_data['phone'] . "\nIP: " . aw_contact_get_the_ip();
+        $subject = "[" . get_bloginfo( 'name' ) . "] " . $form_data['subject'];
+        $message = "First Name: " . $form_data['first_name'] . "\nMiddle Name: " . $form_data['middle_name'] . "\nLast Name: " . $form_data['last_name'] . "\nGender: " . $form_data['gender'] . "\nState: " . $form_data['states'] . "\nBirth Month: " . $form_data['birth_month'] . "\nBirth Day: " . $form_data['birth_day'] . "\nBirth Year: " . $form_data['birth_year'] . "\nHeight in Feet: " . $_POST['feet'] . "\nHeight in Inches: " . $_POST['inches'] . "\nWeight in LBS: " . $form_data['weight'] . "\nTobacco use: " . $_POST['tobacco'] . "\nPolicy amount: " . $_POST['policyAmount'] . "\nYears?: " . $_POST['howManyYears'] . "\nEmail address: " . $form_data['email'] . "\nPhone Number: " . $form_data['phone'] . "\nIP: " . aw_contact_get_the_ip();
         $headers  = "From: " . $form_data['first_name'] . " , " . $form_data['last_name'] . " <" . $form_data['email'] . ">\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
-        wp_mail( $email, $email_subject, $email_message, $headers );
+        wp_mail( $email, $subject, $message, $headers );
         $sent = true;
     }
     if ( $sent == true ) {
-        $email_subject = "Your video life quote request has been received";
-        $email_message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        $to = '$form_data['email']';
+        $subject = $tp_subject;
+        $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -177,7 +177,7 @@ hr.style-three {
         $headers  = "From: " . $tp_first . " , " . $tp_last . " <" . $tp_email . ">\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\n";
         $headers .= "Content-Transfer-Encoding: 8bit\n";
-        wp_mail( $form_data['email'], $email_subject, $email_message, $headers );
+        wp_mail( $to, $subject, $message, $headers );
         $result = $success;
     }
 }
