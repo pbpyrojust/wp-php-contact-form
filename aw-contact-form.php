@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: AnthroWare Contact Form
+Plugin Name: AW Contact Form
 Plugin URI: http://anthroware.com
-Description: An AnthrowWare insurance policy contact form for you. Usage: <code>[aw_contact email="your@email.address"]</code>
-Version: 1.1
+Description: An insurance policy contact form for you. Usage: <code>[aw_contact email="your@email.address"]</code>
+Version: 1.0
 Author: Justin Adams
 Author URI: http://justwhat.net
 */
@@ -517,7 +517,7 @@ $email_form = '<script src="/wp-content/plugins/aw-contact-form/js/jquery.valida
 		</div>
     </div>
 </form>
-<script src="/wp-content/plugins/aw-contact-form/js/validate.js?version=1.9"></script>';
+<script src="/wp-content/plugins/aw-contact-form/js/validate.js?version=1.8"></script>';
 
 if ( $sent == true ) {
     return $info;
