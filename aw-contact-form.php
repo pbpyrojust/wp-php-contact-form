@@ -153,7 +153,6 @@ hr.style-three {
   </tr>
   <tr align="center">
     <td align="left"><p class="regular">Hi '. $form_data['first_name']. ',</p>
-      <p class="regular">Thank you for choosing TermPriceQuote™ Life Made Easy!</p>
       <p class="regular">Your personalized life insurance quotes are being researched from highly rated term life insurance carriers. You will receive your video quote within the next 24 hours.</p>
       <ul>
         <li class="regular">Shop the leading insurance carriers</li>
@@ -161,7 +160,7 @@ hr.style-three {
         <li class="regular">Save time and money.</li>
       </ul>
       <p class="regular">If you have any questions in the meantime, please do not hesitate to call me.<br />
-1-866-573-0001</p>
+1-866-573-0001 or <a href="mailto:contact@termpricequote.com">contact@termpricequote.com</a></p>
       <p class="regular">Thanks so much, <br />
     Michael D. Lopez, CRIS, LUTCF</p></td>
   </tr>
